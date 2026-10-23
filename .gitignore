@@ -15,3 +15,4 @@ data/*
 !runs/
 runs/*
 !runs/README.md
+.DS_Store
