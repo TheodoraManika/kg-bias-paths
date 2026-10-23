@@ -12,6 +12,7 @@ runs/
 data/*
 !data/**/
 !data/**/README.md
+!data/MANIFEST.txt
 !runs/
 runs/*
 !runs/README.md

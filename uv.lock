@@ -666,6 +666,7 @@ dependencies = [
     { name = "optuna" },
     { name = "pandas" },
     { name = "pyarrow" },
+    { name = "pyg-lib", marker = "sys_platform == 'linux'" },
     { name = "pykeen" },
     { name = "pyyaml" },
     { name = "scikit-learn" },
@@ -694,14 +695,15 @@ requires-dist = [
     { name = "optuna", specifier = ">=5.0.0" },
     { name = "pandas", specifier = ">=3.1.0" },
     { name = "pyarrow", specifier = ">=26.0.0" },
+    { name = "pyg-lib", marker = "sys_platform == 'linux'", specifier = ">=0.6.0" },
     { name = "pykeen", specifier = ">=1.11.1" },
     { name = "pyyaml", specifier = ">=6.0.3" },
     { name = "scikit-learn", specifier = ">=1.9.1" },
     { name = "scipy", specifier = ">=1.18.1" },
     { name = "seaborn", specifier = ">=0.13.2" },
     { name = "statsmodels", specifier = ">=0.15.0" },
-    { name = "torch", marker = "sys_platform != 'linux'", specifier = ">=2.7.0" },
-    { name = "torch", marker = "sys_platform == 'linux'", specifier = ">=2.7.0", index = "https://download.pytorch.org/whl/cu128" },
+    { name = "torch", marker = "sys_platform != 'linux'", specifier = ">=2.7" },
+    { name = "torch", marker = "sys_platform == 'linux'", specifier = ">=2.7", index = "https://download.pytorch.org/whl/cu128" },
     { name = "torch-geometric", specifier = ">=2.6.1" },
     { name = "tqdm", specifier = ">=4.70.1" },
     { name = "wandb", specifier = ">=0.31.0" },
@@ -2221,6 +2223,15 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/31/5c/e47e28281f20326ff6f3c31d626f0a83e615d2d94ba41bb0ad6ec237184a/pydantic_core-2.50.1-cp315-cp315t-win32.whl", hash = "sha256:3fde4fdc6487a58d944ca87cf5adc95d5f266e872c19599f5f4c0a8a1b1f9f9f", size = 2098535, upload-time = "2026-10-11T18:34:59.313Z" },
     { url = "https://files.pythonhosted.org/packages/03/ad/759e181e69c1b472c60b2049e5f61d5da1deefdd5ce1df4bb2ebcf771f25/pydantic_core-2.50.1-cp315-cp315t-win_amd64.whl", hash = "sha256:1c8632d4ac04e6f91128fca584b3a8a507d81604c24eeaaad00d4be42765c32b", size = 2148645, upload-time = "2026-10-11T18:35:01.571Z" },
     { url = "https://files.pythonhosted.org/packages/6d/56/8a702c27e5be9f47e5f19d8669227424290e4c024e7c370279cbaf244b4e/pydantic_core-2.50.1-cp315-cp315t-win_arm64.whl", hash = "sha256:c3ede305158e75510be50869b319550ab072008c13d64d4ab1e094fb286b6f44", size = 2175297, upload-time = "2026-10-11T18:35:04.079Z" },
+]
+
+[[package]]
+name = "pyg-lib"
+version = "0.9.0+pt211cu128"
+source = { registry = "https://data.pyg.org/whl/torch-2.11.0+cu128.html" }
+wheels = [
+    { url = "https://data.pyg.org/whl/torch-2.11.0%2Bcu128/pyg_lib-0.9.0%2Bpt211cu128-cp310-abi3-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl" },
+    { url = "https://data.pyg.org/whl/torch-2.11.0%2Bcu128/pyg_lib-0.9.0%2Bpt211cu128-cp310-abi3-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl" },
 ]
 
 [[package]]
