@@ -1,0 +1,12 @@
+name: Task
+description: Track a reproducible project task.
+title: "[Task] "
+labels: ["task"]
+body:
+  - type: textarea
+    id: goal
+    attributes:
+      label: Goal
+      description: State the intended outcome.
+    validations:
+      required: true

@@ -1,7 +1,50 @@
 [project]
-name = "kg-bias-paths"
+name = "fair-kg-lp"
 version = "0.1.0"
-description = "Add your description here"
+description = "Fairness-aware knowledge graph link prediction experiments"
 readme = "README.md"
 requires-python = ">=3.14"
-dependencies = []
+dependencies = [
+    "matplotlib>=3.11.2",
+    "numpy>=2.5.4",
+    "optuna>=5.0.0",
+    "pandas>=3.1.0",
+    "pyarrow>=26.0.0",
+    "pykeen>=1.11.1",
+    "pyyaml>=6.0.3",
+    "scikit-learn>=1.9.1",
+    "scipy>=1.18.1",
+    "seaborn>=0.13.2",
+    "statsmodels>=0.15.0",
+    "tqdm>=4.70.1",
+    "wandb>=0.31.0",
+    "torch>=2.7.0",
+    "torch-geometric>=2.6.1",
+]
+
+[dependency-groups]
+dev = [
+    "ipykernel>=7.4.0",
+    "pre-commit>=4.7.0",
+    "pytest>=9.1.1",
+    "ruff>=0.17.2",
+]
+
+[tool.uv]
+find-links = ["https://data.pyg.org/whl/torch-2.7.0+cu128.html"]
+
+[tool.uv.sources]
+torch = [{ index = "pytorch-cu128", marker = "sys_platform == 'linux'" }]
+
+[[tool.uv.index]]
+name = "pytorch-cu128"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true
+
+[tool.ruff]
+line-length = 100
+target-version = "py314"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

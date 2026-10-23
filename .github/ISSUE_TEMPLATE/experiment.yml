@@ -1,0 +1,16 @@
+name: Experiment
+description: Propose or document an experiment.
+title: "[Experiment] "
+labels: ["experiment"]
+body:
+  - type: textarea
+    id: question
+    attributes:
+      label: Research question
+    validations:
+      required: true
+  - type: input
+    id: config
+    attributes:
+      label: Configuration path
+      placeholder: configs/...
