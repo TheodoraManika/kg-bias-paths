@@ -1,0 +1,88 @@
+%% ACM article starter — acmart document class.
+%%
+%% The acmart class itself is NOT included in this download: it ships with
+%% every modern TeX distribution (and with latextemplates.com's compiler), so
+%% bundling a copy would only risk pinning you to an older version than your
+%% own system already has.
+%%
+%% Class documentation: texdoc acmart   |   https://ctan.org/pkg/acmart
+%% Licence: acmart is LPPL-1.3, (c) Association for Computing Machinery.
+%%
+%% Pick the format your venue asks for by changing the option below:
+%%   acmsmall   ACM small trim journals (default for most TOG/TOCHI journals)
+%%   acmlarge   ACM large trim journals
+%%   sigconf    most ACM conference proceedings
+%%   sigplan    SIGPLAN conferences
+%%   manuscript submission/review copy, single column, line numbers
+\documentclass[sigconf]{acmart}
+
+%% acmart does NOT load cleveref itself — load it here if you want \Cref.
+%% (Checked against the class rather than assumed.)
+\usepackage{cleveref}
+
+%% Conference/journal metadata. Your venue supplies these exact strings —
+%% replace them; do not leave the placeholders in a submission.
+\acmConference[Conference'XX]{ACM Conference}{June 03--05, 2026}{Woodstock, NY}
+\acmBooktitle{ACM Conference (Conference'XX), June 03--05, 2026, Woodstock, NY}
+
+\begin{document}
+
+\title{Your Title Here}
+\subtitle{An optional subtitle}
+
+\author{Ada Lovelace}
+\email{ada@example.edu}
+\affiliation{%
+  \institution{Institute of Analytical Engines}
+  \city{London}
+  \country{United Kingdom}
+}
+
+\author{Second Author}
+\email{second@example.org}
+\affiliation{%
+  \institution{Another University}
+  \city{Springfield}
+  \country{USA}
+}
+
+\begin{abstract}
+  Replace this with your abstract. A good abstract states the problem, what
+  you did, and what you found --- in that order, and without citations.
+\end{abstract}
+
+\keywords{first keyword, second keyword, third keyword}
+
+\maketitle
+
+\section{Introduction}
+Start here. Cite things like this~\cite{knuth1984texbook}, and cross-reference
+sections like \Cref{sec:method}.
+
+\section{Method}
+\label{sec:method}
+Describe what you did.
+
+\begin{table}[t]
+  \caption{A caption goes above the table.}
+  \label{tab:example}
+  \begin{tabular}{lrr}
+    \toprule
+    Condition & Count & Rate \\
+    \midrule
+    Baseline  & 120   & 0.42 \\
+    Ours      & 118   & 0.71 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\section{Results}
+\Cref{tab:example} shows the numbers.
+
+\section{Conclusion}
+Say what it means.
+
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{references}
+
+\end{document}
