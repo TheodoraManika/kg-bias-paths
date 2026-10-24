@@ -11,6 +11,7 @@ sync the committed lockfile:
 ```bash
 uv python install
 uv sync --locked
+uv venv
 ```
 
 The project metadata configures the PyTorch CUDA 12.8 index and the matching
