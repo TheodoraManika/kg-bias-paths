@@ -1,0 +1,9 @@
+file	source	download_date	size_bytes	sha256
+data/raw/wikidata5m/wikidata5m_transductive.tar.gz	https://www.dropbox.com/s/6sbhm0rwo4l73jq/wikidata5m_transductive.tar.gz?dl=1	2026-10-25	168258020	c233bb9d7dfc4eb2f038e0e5cee4b647b39dc4652f05ff118081077a454b3171
+data/raw/wikidata5m/wikidata5m_alias.tar.gz	https://www.dropbox.com/s/lnbhc8yuhit4wm5/wikidata5m_alias.tar.gz?dl=1	2026-10-25	197450113	ece7a2a68c2afcf7e1d633159adddd7a4de03c73334c61c80191000fee26c033
+data/raw/wikidata5m/wikidata5m_text.txt.gz	https://www.dropbox.com/s/7jp4ib8zo3i6m10/wikidata5m_text.txt.gz?dl=1	2026-10-25	1039895929	babee3b56f45b20f2095bd4941f9492392dcbce0374bb2f7949e2260b614edb3
+data/raw/wikidata5m/wikidata5m_transductive_train.txt	extracted from wikidata5m_transductive.tar.gz	2026-10-25	420329153	b3d312fbb168c1c45944f38742af19507d157c0ad65b87059b27ff793e87fab2
+data/raw/wikidata5m/wikidata5m_transductive_valid.txt	extracted from wikidata5m_transductive.tar.gz	2026-10-25	105310	e6c468b17be80ae590cdadec2b1dc28d203eb5041a890586b2800d4e9a8bec6b
+data/raw/wikidata5m/wikidata5m_transductive_test.txt	extracted from wikidata5m_transductive.tar.gz	2026-10-25	104851	69ee37d99f609a085bf13b1b29ce21bc2d8fd04a93787d0f1855dd4a53f13150
+data/raw/wikidata5m/wikidata5m_entity.txt	extracted from wikidata5m_alias.tar.gz	2026-10-25	551790340	e71a0bf6344742abcbe2e398e38874008fee048f513f0e6108c12f859fa52c67
+data/raw/wikidata5m/wikidata5m_relation.txt	extracted from wikidata5m_alias.tar.gz	2026-10-25	56415	dfe6e647a9a57a1e58ea1f9dfd73b3a91d3fdb43bf44599d8c586aa2ae0a79be
