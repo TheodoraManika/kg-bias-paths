@@ -9,7 +9,7 @@ runs/
 
 # Keep folder documentation while ignoring generated contents.
 !data/
-data/*
+data/**
 !data/**/
 !data/**/README.md
 !data/MANIFEST.txt
