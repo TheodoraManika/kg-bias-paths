@@ -40,7 +40,7 @@ Two mechanisms are commonly proposed:
 
 Radstok et al. (2021) further argue that much of the bias in knowledge-graph embeddings originates in the data rather than in the model.
 
-This project studies gender disparities in predicting awards received by people (Wikidata property P166).
+This project studies gender disparities in predicting awards received by people (Wikidata property `P166`).
 
 > **Central Research Question**
 >
@@ -67,10 +67,10 @@ We use [Wikidata5M](https://deepgraphlearning.github.io/project/wikidata5m) (Wan
 
 Wikidata5M keeps only facts between entities that have an English Wikipedia page, and it keeps no literal values such as dates. As a result:
 
-- It contains almost no human gender: the Wikidata values for male (Q6581097) and female (Q6581072) have no Wikipedia page and were dropped, and only 366 of the 1,509,635 humans in the graph have a sex-or-gender (P21) fact.
-- Dates of birth (P569) are missing entirely.
+- It contains almost no human gender: the Wikidata values for male (`Q6581097`) and female (`Q6581072`) have no Wikipedia page and were dropped, and only 366 of the 1,509,635 humans in the graph have a sex-or-gender (`P21`) fact.
+- Dates of birth (`P569`) are missing entirely.
 
-Because group membership is needed to measure any disparity, we retrieved P21 and P569 for all 1,509,635 humans from Wikidata via the [QLever](https://qlever.dev/wikidata) SPARQL endpoint (Wikidata dump of 10 August 2026, with live updates) and joined them on Wikidata IDs.
+Because group membership is needed to measure any disparity, we retrieved `P21` and `P569` for all 1,509,635 humans from Wikidata via the [QLever](https://qlever.dev/wikidata) SPARQL endpoint (Wikidata dump of 10 August 2026, with live updates) and joined them on Wikidata IDs.
 
 | Attribute | Humans with it in Wikidata5M | After adding from Wikidata |
 |:---|:---:|:---:|
@@ -163,7 +163,7 @@ Compute the same metrics separately for each gender group on test award triples,
 
 ### Stage 5 — Encoded gender (if time allows)
 
-Train a probe classifier to predict gender from frozen entity embeddings. If gender is predictable even though P21 was removed, the model has learned it from proxy facts.
+Train a probe classifier to predict gender from frozen entity embeddings. If gender is predictable even though `P21` was removed, the model has learned it from proxy facts.
 
 ### Stretch goals
 
