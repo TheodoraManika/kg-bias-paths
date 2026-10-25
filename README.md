@@ -1,34 +1,5 @@
 # Disentangling Bias in Knowledge-Graph Link Prediction
 
-## **Problem statement:** 
-
-Knowledge-graph link prediction models learn to infer missing relationships from existing facts, but their predictions may reflect social biases and unequal representation in the underlying data. **rewrite** That is because of the messaging in ... and add reference here **end rewrite** This project investigates whether gender-related disparities in predicting awards received by people are associated with gender information encoded in entity representations, differences in graph connectivity, or both **add more references** . The central research question is: To what extent are gender-related disparities in award link prediction associated with **entity  -> not sure if this is the full image something seems missing**, and **can these patterns be distinguished through controlled experiments -> NOT CLEAR ENOUNG i thin this means we will analyse the kg not do something with the models**?
-
-## **Dataset:** 
-We will use [Wikidata5M](https://deepgraphlearning.github.io/project/wikidata5m), a large knowledge graph constructed from a July 2019 Wikidata and Wikipedia snapshot, containing approximately 4.6 million entities and 20.6 million training triples. **rewrite** A problem we have found is there are a lot missing attributes such as gender and birthdate this was a problem because we would have a ground truth to compare our results so we added the missing information by quering the sparqle endpoint of [Qlever](https://qlever.dev/wikidata) **end rewrite** 
-
-Because training on the complete dataset would be computationally demanding for this project, we will construct a reproducible, appropriately sized subsection focused on people and relevant relationships. The primary prediction task will use the Wikidata property P166 (award received); P21 (sex or gender) will identify groups for comparison, and graph degree will measure each entity’s connectivity in the training graph. P106 (occupation) may be included as contextual information if feasible. Any regional analysis using P27 (citizenship) will be optional and conducted only if group sizes support meaningful comparisons. The subset, filtering criteria, and train/validation/test split will be documented to support reproducibility. **-> we should rewrite and say we will make appropriate changes based on the way the project goes to make our life easier.**
-
-## **Problem challenges and related work:** 
-Existing research, collected in the GitHub repository’s research folder, examines social bias in knowledge-graph embeddings, data imbalance, degree-related bias in graph learning, and fairness-aware or counterfactual methods. This research motivates our question: to what extent are gender-related disparities in knowledge-graph award prediction associated with differences in entity connectivity, and how can these patterns be distinguished from other sources of bias **again we are kind of missing the gender attribute work we will do**? The main challenges are incomplete award records, uneven representation across demographic groups, and the difficulty of distinguishing correlation from causation. 
-
-We will therefore audit a manageable dataset subset, establish a baseline model, and compare prediction performance and group-level disparities across degree groups. More complex counterfactual interventions will be considered only if time and computational resources permit.
-
-## **Baselines and methodology:** 
-We will first audit the dataset and report the representation of gender groups, award triples, and degree distributions. We will then implement a knowledge-graph embedding baseline, such as TransE or DistMult, and, if computationally feasible, a relational graph neural network (R-GCN) with a DistMult decoder. Predictive performance will be evaluated using mean reciprocal rank (MRR) and Hits@1/Hits@10. Group-level differences will be examined using clearly defined ranking-based evaluation procedures and degree-stratified comparisons. If resources permit, a probe classifier will test whether gender can be predicted from frozen entity embeddings, and controlled ablations or a limited model-depth comparison will explore the contribution of structural information. A path-specific counterfactual fairness intervention will be treated as a stretch goal rather than a requirement for project completion. We will use fixed data splits, documented preprocessing, and a small number of random seeds where feasible.
-
-## **Feasibility:** 
-The project is feasible within a 12–14-week period for a two-person team given we have already started working on some tasks. The complete Wikidata5M dataset, extensive hyperparameter searches, multiple complex architectures, and a custom counterfactual fairness objective would be too ambitious as simultaneous requirements, particularly when working with Google Colab and limited computing resources. 
-
-The minimum viable project will therefore focus on a manageable dataset subsection, one primary baseline, a careful bias and degree analysis, and a reproducible evaluation. More complex models, additional demographic comparisons, and counterfactual interventions will be pursued only if the core experiments are completed successfully.
-
-## **Declaration on Generative AI:** 
-During the preparation of this work, the authors used Claude (Anthropic) and ChatGPT (OpenAI) to assist with drafting, editing, and organizing research materials, and Grammarly to support language and grammar revision. After using these tools, the authors reviewed and edited the content as needed and take full responsibility for the description’s content.
-
----
-
-# Revised version (draft)
-
 ## 1. Problem Statement
 
 Knowledge-graph link prediction models learn to infer missing facts from existing ones, so their predictions can reproduce, and sometimes amplify, the social biases and unequal representation in the underlying data (Fisher et al., 2020; Kraft & Usbeck, 2022).
@@ -134,6 +105,29 @@ The plan is staged, so that each step produces a usable result even if later ste
 | 4 | Connectivity analysis | Minimum viable project |
 | 5 | Encoded gender | If time allows |
 
+### Baselines
+
+We use "baseline" in two senses: the models whose bias we measure, and the existing debiasing methods we compare our own methods against.
+
+**1. Link prediction baselines (no debiasing).** These are the models whose gender gap we measure in the core study, and the reference point every debiasing method is compared with.
+
+| Model | Type | Used in |
+|:---|:---|:---|
+| **TransE** (Bordes et al., 2013) | Knowledge-graph embedding: a fact is likely if *head + relation ≈ tail* | Core study (main baseline) |
+| **DistMult** (Yang et al., 2015) | Knowledge-graph embedding: scores a fact by multiplying head, relation and tail | Core study; also the decoder of the R-GCN |
+| **RotatE** (Sun et al., 2019) | Knowledge-graph embedding: relations as rotations | Core study, if time allows |
+| **R-GCN** without any debiasing (Schlichtkrull et al., 2018) | Graph neural network with a DistMult decoder | Version A and B: the model our methods modify |
+
+**2. Debiasing baselines (Version A and B only).** Existing methods we compare our methods against, each applied to the same R-GCN:
+
+| Method | What it does |
+|:---|:---|
+| **No debiasing** | The plain R-GCN above |
+| **Adversarial filter** (Bose & Hamilton, 2019) | Trains a filter on the embeddings so that an adversary cannot recover gender |
+| **FairDrop** (Spinelli et al., 2021) | Randomly drops edges between people of the same group during training to reduce homophily |
+| **Data rebalancing** | Reweights or resamples training facts so that gender groups contribute equally |
+| **NIFTY** (Agarwal et al., 2021), if time allows | Makes representations stable when the sensitive attribute is flipped |
+
 ### Stage 1 — Data audit (no model)
 
 - Report the size of each gender group, award rates, degree distributions and birth-period distributions.
@@ -165,33 +159,98 @@ Compute the same metrics separately for each gender group on test award triples,
 
 Train a probe classifier to predict gender from frozen entity embeddings. If gender is predictable even though `P21` was removed, the model has learned it from proxy facts.
 
-### Stretch goals
+### Beyond the core: debiasing methods (Version A and Version B)
 
-*Attempted only once stages 1–4 are complete:*
+Stages 1–5 **diagnose** the bias. Version A and Version B go one step further and try to **reduce** it. Which one we attempt depends on your guidance and on the diagnosis (see Section 5).
 
-- A relational graph neural network (**R-GCN** with a DistMult decoder; Schlichtkrull et al., 2018) and a comparison across depths of message passing.
-- Ablations that remove likely proxy relations.
-- A path-specific counterfactual fairness intervention (Chiappa, 2019).
+#### The two paths we target
+
+A graph neural network builds each person's representation from what they are connected to: university, employer, spouse, occupation, country. A gender gap in award predictions can arise along two paths:
+
+| Path | What happens | Example |
+|:---|:---|:---|
+| **Direct path** | The model uses gender itself, either from the gender fact or from proxies such as spouse, "actress" or a first name. | The model learns "this person is a woman, so less likely to win this award". |
+| **Connectivity path** | Well-connected people get richer representations and better predictions, and well-connected people in Wikidata are disproportionately men. | A famous scientist with 500 connections is predicted well; a lesser-known scientist with 3 connections is predicted poorly, whatever their gender. |
+
+The diagnosis in Stages 4–5 estimates how much of the gap goes through each path. Both versions then try to remove it, path by path.
+
+#### Shared tools for both versions
+
+- **A relational graph neural network** (**R-GCN** with a DistMult decoder; Schlichtkrull et al., 2018), later also CompGCN, replaces the Stage 2 baseline. We first rerun Stages 3–5 on it, with 0 to 3 layers of message passing, to see whether message passing itself increases the gap.
+- **A synthetic test graph:** a small artificial graph in which we plant a direct bias, a connectivity bias and a gender proxy, each of known strength. Every component is tested here first: it must remove the bias it targets and leave the other one unchanged. Only components that pass are run on Wikidata.
+
+#### Version A: a counterfactual training objective
+
+**Idea.** Keep the R-GCN as it is, and change only *how it is trained*. We add a fairness term to the training loss, based on path-specific counterfactual fairness (Chiappa, 2019), which asks: *would this person's award prediction change if only their gender were different?*
+
+**Steps.**
+
+1. **Direct term (direct path).** For a sample of people, create a copy in which only the gender fact is flipped, run both through the model, and penalise any difference in their award scores. Test on the synthetic graph.
+2. **Matching (prepared once, on CPU).** For each person, find real people of another gender with a similar occupation, birth decade and region, and check that the matched groups are balanced on these variables.
+3. **Popularity term (connectivity path).** Penalise differences between each person's predictions and those of their matched counterparts. Test on the synthetic graph.
+4. **Training.** The model is trained on link prediction plus the two fairness terms, each with a weight. Varying the weights traces the trade-off between accuracy and fairness. We report two settings: direct term only, and both terms, since deciding which path counts as unfair is a normative choice.
+5. **Comparison.** Compare against the debiasing baselines listed under *Baselines* above, and test each term alone and both together, with 3–5 random seeds.
+
+#### Version B: two debiasing modules + the Version A objective
+
+**Idea.** Change the *architecture* of the R-GCN, with one module per path, and then train it with the Version A objective.
+
+**Steps.**
+
+1. **Module A: degree-robust aggregation (connectivity path).**
+   - Each person receives at most a fixed number of messages per relation, so famous people cannot hoard information.
+   - Messages are averaged instead of summed, so more neighbours no longer means a "bigger" representation.
+   - For people with very few connections, a small learned component fills in missing information. It is trained by hiding most connections of well-connected people and teaching it to reconstruct their full representation.
+   - *Test:* on the synthetic graph, the connectivity bias goes down and the direct bias is unchanged.
+2. **Module B: two-channel layer with an adversary (direct path).**
+   - Each person's representation is split into a *sensitive* channel, the only place gender may go, and a *content* channel, which is the only part used to predict awards.
+   - An adversary, a small classifier, tries to guess gender from the content channel; the model is trained to make it fail.
+   - *Test:* a probe on the content channel guesses gender no better than chance, and the direct bias goes down.
+3. **Add the Version A objective** to the model with both modules, and tune the weights.
+4. **Comparison.** Six configurations on Wikidata: baseline, Module A only, Module B only, objective only, both modules, and everything together. We use the same baselines as Version A, with R-GCN and CompGCN and 3–5 seeds. This also shows whether a module and the objective term on the same path are both needed.
+
+Each module alone closes only one path, which is why Version B combines them.
+
+#### How we judge success (both versions)
+
+For every model we rerun the measurements from Stages 3–5 and ask:
+
+| Question | Measured by |
+|:---|:---|
+| Did the gender gap shrink? | Per-group MRR and Hits@k, with confidence intervals (Stage 3) |
+| Which path did it shrink? | Connectivity analysis before and after (Stage 4) |
+| Is gender still encoded? | Probe accuracy (Stage 5) |
+| What did it cost? | Overall MRR and Hits@k compared with the baseline |
+| Is the model still amplifying the data's bias? | Ratio of model disparity to data disparity (Stage 1) |
 
 ### Reproducibility
 
 All experiments use fixed, versioned data splits, documented preprocessing, a locked software environment (uv) and fixed random seeds, so that every reported number can be traced to a code version, a data version and a seed.
 
-## 5. Feasibility and Scope
+## 5. Feasibility and Scope: Options for Discussion
 
-The project is planned for **12–14 weeks with a two-person team**; the computing environment, data download and attribute retrieval are already complete.
+We are a two-person team; the computing environment, data download and attribute retrieval are already complete. We work with a single consumer GPU (RTX 5060 Ti, 16 GB) and Google Colab, so running the full Wikidata5M graph, extensive hyperparameter searches and several architectures at once would be too ambitious.
 
-Running the full Wikidata5M graph, extensive hyperparameter searches, several architectures and a custom counterfactual objective at once would be too ambitious, particularly with a single consumer GPU (RTX 5060 Ti, 16 GB) and Google Colab.
+We see three possible scopes and would value your guidance on which to aim for. They build on each other: the first six weeks are the same for all three, and each option keeps the previous one as a fallback.
 
-| Minimum viable project (stages 1–4) | Only if the core is finished |
-|:---|:---|
-| A documented subset | The probe |
-| A data audit | Graph neural network models |
-| One baseline model | Additional demographic comparisons |
-| A careful group and connectivity analysis with reproducible evaluation | Counterfactual methods |
+| | **Core study** | **Version A** | **Version B** |
+|:---|:---|:---|:---|
+| **What it adds** | Diagnosis only: stages 1–4 above (stage 5 if time allows) | Core study + a **counterfactual training objective** | Version A + **two debiasing modules** inside the GNN |
+| **Model** | Knowledge-graph embedding baseline (TransE or DistMult) | R-GCN, then CompGCN | R-GCN, then CompGCN |
+| **Contribution** | An empirical study of how much of the gender gap is linked to connectivity and to encoded gender | A new objective with two terms: a **direct term** (flip only the gender edge and penalise the change in award scores) and a **popularity term** (compare each person with real people of another gender and similar occupation, birth decade and region) | **Module A**, degree-robust aggregation, for the connectivity path; **Module B**, a two-channel layer with an adversary that keeps gender out of the channel used for award prediction, for the direct path; both trained with the Version A objective |
+| **Comparisons** | Gender groups, degree bins | No debiasing, adversarial filter (Bose & Hamilton, 2019), FairDrop, data rebalancing | Same as Version A, plus six configurations (each module alone, the objective alone, combinations) |
+| **Duration** | About 6 weeks | About 13 weeks | About 16 weeks |
+| **Fallback** | – | Core study (week 6) | Version A (week 11) |
+
+**Timeline.** Weeks 1–6 are shared: data, audit, baseline and diagnosis (the core study). At week 6, the diagnosis shows which source of bias dominates, connectivity or encoded gender, and therefore which component to prioritise. Version A then builds the objective (weeks 7–13). Version B builds the two modules first (weeks 7–9), then adds the objective (weeks 10–11), and spends the remaining weeks on integration, comparisons and writing (weeks 12–16).
+
+**Minimum viable outcome.** Whichever option we choose, the core study is completed first and stands on its own: a documented subset, a data audit, one baseline model, and a careful group and connectivity analysis with reproducible evaluation.
+
 
 ## 6. References
 
+- Agarwal, C., Lakkaraju, H., & Zitnik, M. (2021). Towards a unified framework for fair and stable graph representation learning. *UAI*. [arXiv:2102.13186](https://arxiv.org/abs/2102.13186)
+- Bordes, A., Usunier, N., Garcia-Durán, A., Weston, J., & Yakhnenko, O. (2013). Translating embeddings for modeling multi-relational data. *NeurIPS*. [Proceedings](https://papers.nips.cc/paper_files/paper/2013/hash/1cecc7a77928ca8133fa24680a88d2f9-Abstract.html)
 - Bose, A. J., & Hamilton, W. L. (2019). Compositional fairness constraints for graph embeddings. *ICML*. [arXiv:1905.10674](https://arxiv.org/abs/1905.10674)
 - Buyl, M., & De Bie, T. (2020). DeBayes: A Bayesian method for debiasing network embeddings. *ICML*. [arXiv:2002.11442](https://arxiv.org/abs/2002.11442)
 - Chiappa, S. (2019). Path-specific counterfactual fairness. *AAAI*. [arXiv:1802.08139](https://arxiv.org/abs/1802.08139)
@@ -202,9 +261,12 @@ Running the full Wikidata5M graph, extensive hyperparameter searches, several ar
 - Radstok, W., Chekol, M. W., & Schäfer, M. T. (2021). Are knowledge graph embedding models biased, or is it the data that they are trained on? *Wikidata Workshop @ ISWC*. [CEUR-WS Vol-2982](https://ceur-ws.org/Vol-2982/paper-5.pdf)
 - Schlichtkrull, M., Kipf, T. N., Bloem, P., van den Berg, R., Titov, I., & Welling, M. (2018). Modeling relational data with graph convolutional networks. *ESWC*. [arXiv:1703.06103](https://arxiv.org/abs/1703.06103)
 - Shomer, H., et al. (2023). Toward degree bias in embedding-based knowledge graph completion. *WWW*. [arXiv:2302.05044](https://arxiv.org/abs/2302.05044)
+- Spinelli, I., Scardapane, S., Hussain, A., & Uncini, A. (2021). FairDrop: Biased edge dropout for enhancing fairness in graph representation learning. *IEEE Transactions on Artificial Intelligence*. [arXiv:2104.14210](https://arxiv.org/abs/2104.14210)
 - Subramonian, A., Kang, J., & Sun, Y. (2024). Theoretical and empirical insights into the origins of degree bias in graph neural networks. [arXiv:2404.03139](https://arxiv.org/abs/2404.03139)
+- Sun, Z., Deng, Z.-H., Nie, J.-Y., & Tang, J. (2019). RotatE: Knowledge graph embedding by relational rotation in complex space. *ICLR*. [arXiv:1902.10197](https://arxiv.org/abs/1902.10197)
 - Tang, X., et al. (2020). Investigating and mitigating degree-related biases in graph convolutional networks. *CIKM*. [doi:10.1145/3340531.3411872](https://doi.org/10.1145/3340531.3411872)
 - Wang, X., et al. (2021). KEPLER: A unified model for knowledge embedding and pre-trained language representation. *TACL*. [arXiv:1911.06136](https://arxiv.org/abs/1911.06136)
+- Yang, B., Yih, W.-t., He, X., Gao, J., & Deng, L. (2015). Embedding entities and relations for learning and inference in knowledge bases. *ICLR*. [arXiv:1412.6575](https://arxiv.org/abs/1412.6575)
 
 ## 7. Declaration on Generative AI
 
