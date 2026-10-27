@@ -48,7 +48,7 @@ Because group membership is needed to measure any disparity, we retrieved `P21` 
 | Gender (`P21`) | 366 | **99.2%** |
 | Date of birth (`P569`) | none | **92.9%** |
 
-> **Note:** These attributes are stored in a separate table and are **not** added to the graph the model is trained on; they are used only to group people for evaluation, for the audit, and for probing.
+> **Note:** The Gender (`P21`) attribute is stored in a separate table and is **not** added to the graph the model is trained on; it is used only to group people for evaluation, for the audit, and for probing. The Date of birth (`P569`) attribute **is** used in the training.
 
 We also recorded each person's current awards, occupations and citizenship to measure how much of this information Wikidata5M omits. The download script and file checksums are in the repository.
 
@@ -59,7 +59,6 @@ Training on the full graph is computationally demanding for this project, so we 
 | Property | Description | Role in the project |
 |:---|:---|:---|
 | `P166` | Award received | Prediction target |
-| `P21` | Sex or gender | Defines the groups |
 | `P106` | Occupation | May be used as a control variable |
 | `P569` | Date of birth (birth decade) | May be used as a control variable |
 | `P27` | Country of citizenship | Optional regional analysis; depends on group sizes |
@@ -90,7 +89,7 @@ These studies usually treat demographic bias and degree bias separately. Our que
 
   This comparison mixes Wikidata5M's filtering with seven years of later Wikidata edits, which we will try to separate. Measured accuracy is therefore relative to labels that may themselves be biased.
 - **Uneven representation:** Among humans with a recorded gender, 82.7% are male, 17.2% female and about 0.1% have another value. Small groups limit what can be measured reliably; we will report them descriptively rather than drop them silently.
-- **Correlation versus causation:** Degree, occupation, birth period and gender are all related, so observed associations cannot be read as causal effects without further assumptions.
+- **Correlation versus causation:** Degree, occupation, and birth period are all related, so observed associations cannot be read as causal effects without further assumptions.
 - **Attributes from two time points:** The graph reflects 2019, while gender and birth date come from 2026; we will state this limitation explicitly.
 
 ## 4. Baselines and Methodology
