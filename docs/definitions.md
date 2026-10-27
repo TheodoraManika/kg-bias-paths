@@ -236,7 +236,7 @@ Document the entity matching and value matching rules. Because Wikidata5M reflec
 
 ## 6. Model-level Fairness Metrics
 
-Let $Q_g$ be the set of held-out positive test queries associated with people in group $g$. For an award query $q=(p,\mathrm{P166},a)$ let $\operatorname{rank}(a\mid p,\mathrm{P166})$ denote the rank of the true award after applying the documented filtered-ranking protocol.
+Let $Q_g$ be the set of held-out positive test queries associated with people in group $g$. For an award query $q=(p,\mathrm{P166},a)$ let $\mathrm{rank}(a\mid p,\mathrm{P166})$ denote the rank of the true award after applying the documented filtered-ranking protocol.
 
 The main comparisons are male versus female, with other groups reported descriptively when feasible.
 
@@ -248,7 +248,7 @@ $$
 H_g@k =
 \frac{1}{|Q_g|}
 \sum_{q\in Q_g}
-\mathbf{1}[\operatorname{rank}(q)\leq k]
+\mathbf{1}[\mathrm{rank}(q)\leq k]
 $$
 
 Hits@k is the proportion of held-out positive queries for which the true answer ranks among the top \(k\) candidates.
@@ -277,12 +277,12 @@ D_{g}@k,\tau =
 \sum_{p\in P_g}
 \mathbf{1}
 \left[
-\exists a\in\operatorname{TopK}(p):
+\exists a\in\mathrm{TopK}(p):
 s(p,a)\geq\tau
 \right]
 $$
 
-where $s(p,a)$ is the model score and $\operatorname{TopK}(p)$ is the set of the $k$ highest-ranked candidate awards for person $p$.
+where $s(p,a)$ is the model score and $\mathrm{TopK}(p)$ is the set of the $k$ highest-ranked candidate awards for person $p$.
 
 The demographic-parity gap is:
 
@@ -303,7 +303,7 @@ $$
 MRR_g =
 \frac{1}{|Q_g|}
 \sum_{q\in Q_g}
-\frac{1}{\operatorname{rank}(q)}
+\frac{1}{\mathrm{rank}(q)}
 $$
 
 The MRR gap is:
