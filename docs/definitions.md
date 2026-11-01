@@ -376,6 +376,125 @@ Keep versioned records of:
 Any change to these definitions must be documented with its rationale and the experiments it affects. Do not silently change group assignments, whitelist classifications, or metric definitions after reviewing results.
 
 
+## 11. Geographic Classification for P27 Analysis
+
+### 11.1 Purpose and Scope
+
+The project uses Wikidata property `P27` — country of citizenship — as an optional attribute for regional analysis. This section defines how eligible geographic, country, and territorial entities appearing as P27 values are assigned to broad geographic regions.
+
+The classification uses the United Nations Statistics Division's **UN M49 geographic regions**. The project uses only the five broad regions; UN M49 subregions and intermediate regions are outside the current scope. Subregion classification may be revisited later if the research question requires finer geographic distinctions.
+
+This is a classification of geographic entities, not a claim about a person's cultural identity, ethnicity, political alignment, or socioeconomic position. A recorded citizenship value is not a complete description of a person's identity.
+
+### 11.2 Chosen Classification Scheme
+
+Use the five UN M49 broad regions:
+
+| Broad region | M49 code |
+|---|---:|
+| Africa | `002` |
+| Americas | `019` |
+| Asia | `142` |
+| Europe | `150` |
+| Oceania | `009` |
+
+The official UN M49 classification is the reference for geographic assignments:
+
+[https://unstats.un.org/unsd/methodology/M49](https://unstats.un.org/unsd/methodology/M49)
+
+UN M49 describes these groupings as intended for statistical use. Their assignment does not imply a position on political affiliation, sovereignty, recognition, or territorial boundaries. This project uses broad regions because they provide a consistent geographic grouping for exploratory analysis while avoiding additional subregion-level complexity that is not currently required by the research question.
+
+**Only the broad-region code is used in the current analysis.** Country-or-area M49 codes and subregion codes are distinct from broad-region codes and must not be substituted for them.
+
+### 11.3 Entity Eligibility and Assignment Rules
+
+Apply the following rules to the P27 entities considered for geographic classification:
+
+1. **Eligible geographic entities:** Assign a broad region to an entity that can be defensibly associated with a geographic area. This includes eligible countries, territories, historical states, and other geographic or territorial entities. Resolve entities using their Wikidata QID and supporting identity information, not the label alone.
+
+2. **Modern country and area assignments:** Where an entity can be matched to a country or area in the official UN M49 classification, use that country's or area's broad-region assignment.
+
+3. **Historical states and territories:** Review historical states and territorial entities individually. Where a historical entity can be associated with a modern country, inherit that modern country's UN M49 broad-region assignment under this project policy. Where this inheritance rule does not apply, use the entity's documented geographic extent and historical context to determine whether one broad region can be assigned defensibly. If its extent spans multiple broad regions and no single assignment is defensible, leave it unmapped and explain why.
+
+   This inheritance rule is a project-specific convention for historical and territorial entities; it is not an official UN M49 rule.
+
+4. **Disputed and transcontinental entities:** Political recognition does not determine geographic classification. Apply the geographic and inheritance rules above. If a single broad region cannot be assigned defensibly under the policy, retain an unmapped status rather than choosing a region arbitrarily.
+
+5. **Non-geographic or ineligible entities:** Do not assign a geographic region to entities outside the scope of geographic classification, such as people, languages, organizations, fictional places, or unrelated topics. Record them as not applicable under the review policy.
+
+6. **No demographic inference:** Do not infer citizenship or geographic affiliation from a person's name, gender, occupation, or other demographic characteristics.
+
+7. **One region per mapped entity:** Each entity in the mapping register receives at most one broad-region assignment. Do not assign multiple broad regions to a single entity to represent a transcontinental extent.
+
+### 11.4 Multiple P27 Values
+
+Preserve all underlying P27 values. If a person has multiple recorded citizenship values that map to different broad regions, use **multi-membership**: the person may be associated with each applicable region.
+
+Do not silently choose a single "primary" region or use the most frequent region. Do not discard additional citizenship values when constructing the mapping.
+
+If an analysis requires mutually exclusive regional groups, define and justify a separate selection, exclusion, or grouping rule before running that analysis, and report the resulting sample sizes. The entity mapping itself must not discard the original P27 values.
+
+Under multi-membership, regional group totals may overlap. A person associated with more than one region may contribute to more than one regional group. Analyses and reports must account for this when interpreting group sizes and comparisons.
+
+### 11.5 Review Statuses
+
+The geographic mapping register uses the following statuses:
+
+| Status | Meaning |
+|---|---|
+| `approved_working_decision` | The entity has a reviewed working decision and, where geographically applicable, an assigned broad region. |
+| `not_applicable_by_policy` | The entity is outside the scope of this geographic classification. |
+| `unmapped_by_policy` | The entity is geographic or territorial, but no defensible single broad-region assignment is made under the current policy. |
+
+A status is not interchangeable with a region assignment. In particular, `not_applicable_by_policy` and `unmapped_by_policy` are not geographic regions and must not be silently converted into one.
+
+`candidate_needs_validation` may be used as a temporary review status while an entity's identity or appropriate treatment remains unresolved. It is not one of the final statuses in the completed mapping register; unresolved records must be reviewed and assigned an appropriate final status before the mapping is used.
+
+### 11.6 Mapping Register and Coverage Reporting
+
+The mapping register is maintained in `configs/data/regions.yaml`. For each citizenship-value QID, it records the Wikidata QID, label where available, review status, rationale where available, broad region where applicable, and P27 occurrence count.
+
+The source data is `attributes_2026-10-25.tsv`, filtered to property `P27`.
+
+The completed mapping contains **2,323 distinct citizenship-value QIDs**, representing **1,458,799 QID occurrences** across **1,459,050 P27 source rows**. The remaining 251 occurrences are 251 distinct genid values, which are excluded from geographic mapping.
+
+The audited decision distribution is:
+
+| Review status | Count |
+|---|---:|
+| `approved_working_decision` | 2,105 |
+| `not_applicable_by_policy` | 178 |
+| `unmapped_by_policy` | 40 |
+| **Total** | **2,323** |
+
+The approved broad-region assignments are:
+
+| Broad region | M49 code | Count |
+|---|---:|---:|
+| Africa | `002` | 243 |
+| Americas | `019` | 162 |
+| Asia | `142` | 753 |
+| Europe | `150` | 903 |
+| Oceania | `009` | 44 |
+| **Total approved** | | **2,106** |
+
+The mapping was independently audited against the source TSV. The audit confirmed complete coverage of the 2,323 distinct citizenship-value QIDs, no extra mapping QIDs, no P27 occurrence-count mismatches, valid statuses and region codes, and agreement between the stored and recalculated decision and region summaries.
+
+The audit also identified 19 records without English labels and 167 records without recorded rationales. These are retained as data-quality limitations rather than silently filled with inferred values. Missing labels and rationales should be reviewed where possible.
+
+The 251 genid values are excluded from geographic mapping and are reported separately. They must not be treated as country QIDs or assigned invented geographic identities.
+
+### 11.7 Limitations and Reporting
+
+UN M49 broad regions are statistical geographic groupings. They do not capture all cultural, political, historical, or social distinctions and should not be interpreted as proxies for those concepts without separate justification.
+
+The project-specific inheritance rule for historical entities is an operational convention, not an official UN classification. Historical boundaries and territorial associations may be uncertain or contested; these limitations should be reflected in individual mapping rationales.
+
+Wikidata citizenship statements may be incomplete or inaccurate. Missing or unrecorded P27 values must not be interpreted as proof that a person has no citizenship or geographic affiliation.
+
+For every regional analysis, document the classification reference and source snapshot, the entity-mapping register, the handling of multiple P27 values, the analysis population, and the number of people excluded or left without an applicable region. Because multi-membership allows people to appear in multiple regional groups, report whether regional samples overlap. Interpret findings as conditional on the recorded attributes and the selected classification scheme.
+
+
 ## References and identifier verification
 
 - Wikidata Property `P21`, including documented values and usage guidance: https://www.wikidata.org/wiki/Property:P21
