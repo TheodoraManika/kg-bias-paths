@@ -15,7 +15,9 @@ We study this at two levels: the **data** (how unequal the graph itself is, befo
 
 [Wikidata5M](https://deepgraphlearning.github.io/project/wikidata5m) (Wang et al., 2021): **4,594,485 entities, 822 relations, 20,614,279 training triples** (2019 snapshot; statistics verified).
 
-**Missing attributes.** Wikidata5M keeps only facts between entities with an English Wikipedia page and no dates, so only 366 of its 1,509,635 humans have a gender (`P21`) and none has a birth date (`P569`). We retrieved both from Wikidata via [QLever](https://qlever.dev/wikidata) (dump of 10 August 2026) and joined them on Wikidata IDs: gender is now available for **99.2%** and birth date for **92.9%** of humans. These attributes are kept in a separate table and are **not** part of the training graph; they are used only to group people for evaluation.
+**Missing attributes.** Wikidata5M keeps only facts between entities with an English Wikipedia page and no dates, so only 366 of its 1,509,635 humans have a gender (`P21`) and none has a birth date (`P569`). We retrieved both from Wikidata via [QLever](https://qlever.dev/wikidata) (dump of 10 August 2026) and joined them on Wikidata IDs: gender is now available for **99.2%** and birth date for **92.9%** of humans. 
+
+> **Note:** The Gender (`P21`) attribute is stored in a separate table and is **not** added to the graph the model is trained on; it is used only to group people for evaluation, for the audit, and for probing. The Date of birth (`P569`) attribute **is** used in the training.
 
 **Scope.** We will build a documented, versioned subset focused on people: `P166` is the target, `P21` defines the groups, node degree measures connectivity, and occupation (`P106`) and birth decade may serve as controls. We expect to adjust the subset and split as the project develops and will document each change.
 
@@ -23,7 +25,7 @@ We study this at two levels: the **data** (how unequal the graph itself is, befo
 
 - **Biased labels:** Wikidata5M retains a smaller share of women's Wikidata awards (23.1% vs. 25.6% for men) and occupations (33.0% vs. 39.1%); this mixes dataset filtering with later Wikidata edits.
 - **Uneven groups:** 82.7% male, 17.2% female, about 0.1% other; small groups are reported descriptively.
-- **Correlation, not causation:** degree, occupation, birth period and gender are related.
+- **Correlation, not causation:** degree, occupation and birth period are related.
 - **Two time points:** the graph is from 2019, the attributes from 2026.
 
 ## 4. Methodology
@@ -43,24 +45,6 @@ We study this at two levels: the **data** (how unequal the graph itself is, befo
 
 Success is judged by whether the gender gap shrinks, on which path, whether gender is still encoded, and at what cost in accuracy.
 
-## 5. Scope Options and Questions
-
-The first six weeks (the core study) are shared; each option falls back to the previous one.
-
-| | Core study | Version A | Version B |
-|:---|:---|:---|:---|
-| **Adds** | Diagnosis (stages 1–4) | + counterfactual objective | + two modules |
-| **Duration** | ~6 weeks | ~13 weeks | ~16 weeks |
-| **Fallback** | – | Core study (week 6) | Version A (week 11) |
-
-Resources: a two-person team, one RTX 5060 Ti (16 GB) and Google Colab; the environment, data and attributes are already in place.
-
-**Questions for the professor:**
-
-1. Which scope is appropriate for a two-person team?
-2. Does a new training objective (Version A) count as sufficient novelty, or are the modules of Version B expected?
-3. What is the submission deadline?
-
 ## References
 
 - Bordes, A., et al. (2013). Translating embeddings for modeling multi-relational data. *NeurIPS*. [Proceedings](https://papers.nips.cc/paper_files/paper/2013/hash/1cecc7a77928ca8133fa24680a88d2f9-Abstract.html)
@@ -79,4 +63,4 @@ Resources: a two-person team, one RTX 5060 Ti (16 GB) and Google Colab; the envi
 
 ## Declaration on Generative AI
 
-The authors used ChatGPT (OpenAI) and Claude (Anthropic, including Claude Code) for project guides and task planning, writing and debugging code, data checks, drafting and revising text, checking reference links, and answering questions and explaining the research papers. The research question, methods and all decisions were made by the authors, who found all cited papers through their own online searches, changed and revised all AI-generated text, reviewed and tested all code, checked the reported numbers, and take full responsibility for the content.
+The authors used ChatGPT (OpenAI) and Claude (Anthropic, including Claude Code) for project guides and task planning, data checks, drafting and revising text, and answering questions and explaining the research papers. The research question, methods and all decisions were made by the authors, who found all cited papers through their own online searches, changed and revised all AI-generated text and take full responsibility for the content.
