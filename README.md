@@ -69,7 +69,7 @@ $$\mathbf{s}\in\mathbb{R}^{|\mathcal{A}|},\qquad s_a=f(p,\mathrm{P166},a)$$
 
 **Filtered rank** of the true award $a^*$, where $\mathcal{F}_p$ is the set of other awards already known to be true for $p$:
 
-$$\operatorname{rank}(a^*)=1+\bigl|\{a\in\mathcal{A}\setminus\mathcal{F}_p:\ s_a>s_{a^*}\}\bigr|$$
+$$\mathrm{rank}(a^*)=1+\bigl|\{a\in\mathcal{A}\setminus\mathcal{F}_p:\ s_a>s_{a^*}\}\bigr|$$
 
 MRR, Hits@k and the group gaps are computed from this rank (see definitions.md, Section 6).
 
@@ -95,15 +95,15 @@ The exact loss, margin and number of negatives are set in the PyKEEN config and 
 
 **Gender probe.** On frozen embeddings, a linear classifier predicts gender; the probe is compared against a majority-class baseline.
 
-$$\hat g(p)=\operatorname{softmax}(W\mathbf{e}_p+b),\qquad \mathcal{L}_{probe}=-\sum_{p}\log \hat g(p)_{g(p)}$$
+$$\hat g(p)=\mathrm{softmax}(W\mathbf{e}_p+b),\qquad \mathcal{L}_{probe}=-\sum_{p}\log \hat g(p)_{g(p)}$$
 
 **Connectivity analysis (proposed plan).** These analyses run after training, on a table with one row per test query containing the person, gender, degree and rank. They describe associations; they do not show that degree causes a gap (definitions.md, Section 7).
 
-Notation: $F_p=\mathbf{1}[g(p)=F]$ (so the comparison group is male), $x_p=\log\bigl(1+\deg(p)\bigr)$, $\operatorname{RR}_q=1/\operatorname{rank}(q)$, and $\mathbf{z}_p$ are optional controls (occupation, birth decade).
+Notation: $F_p=\mathbf{1}[g(p)=F]$ (so the comparison group is male), $x_p=\log\bigl(1+\deg(p)\bigr)$, $\mathrm{RR}_q=1/\mathrm{rank}(q)$, and $\mathbf{z}_p$ are optional controls (occupation, birth decade).
 
 *Main analysis: regression with an interaction and splines.* Let $B_1,\dots,B_K$ be spline basis functions of $x_p$, which let the effect of degree bend instead of being a straight line:
 
-$$\operatorname{RR}_q=\beta_0+\beta_1F_p+\sum_{k=1}^{K}\gamma_kB_k(x_p)+\sum_{k=1}^{K}\delta_kF_pB_k(x_p)+\boldsymbol{\theta}^\top\mathbf{z}_p+\varepsilon_q$$
+$$\mathrm{RR}_q=\beta_0+\beta_1F_p+\sum_{k=1}^{K}\gamma_kB_k(x_p)+\sum_{k=1}^{K}\delta_kF_pB_k(x_p)+\boldsymbol{\theta}^\top\mathbf{z}_p+\varepsilon_q$$
 
 The $\delta_k$ terms let degree affect women and men differently. The gender gap at degree level $x$ is then:
 
@@ -119,19 +119,19 @@ Bootstrapping over people is an equivalent option (definitions.md, Section 9).
 
 *Check 1: degree bins.* Split people into degree bins $b=1,\dots,B$. Within each bin, compare the groups and combine with weights $w_b$ (for example the share of women in bin $b$):
 
-$$\Delta_b=\operatorname{MRR}_{F,b}-\operatorname{MRR}_{M,b},\qquad \Delta_{bins}=\sum_{b=1}^{B}w_b\,\Delta_b$$
+$$\Delta_b=\mathrm{MRR}_{F,b}-\mathrm{MRR}_{M,b},\qquad \Delta_{bins}=\sum_{b=1}^{B}w_b\,\Delta_b$$
 
-*Check 2: matched comparison.* For each woman $p$, let $\mathcal{M}(p)$ be the set of men with the same degree bin, occupation and birth decade. With $\overline{\operatorname{RR}}_p$ the average reciprocal rank over a person's queries:
+*Check 2: matched comparison.* For each woman $p$, let $\mathcal{M}(p)$ be the set of men with the same degree bin, occupation and birth decade. With $\overline{\mathrm{RR}}_p$ the average reciprocal rank over a person's queries:
 
-$$\Delta_{match}=\frac{1}{|P_F|}\sum_{p\in P_F}\Bigl[\overline{\operatorname{RR}}_p-\frac{1}{|\mathcal{M}(p)|}\sum_{p'\in\mathcal{M}(p)}\overline{\operatorname{RR}}_{p'}\Bigr]$$
+$$\Delta_{match}=\frac{1}{|P_F|}\sum_{p\in P_F}\Bigl[\overline{\mathrm{RR}}_p-\frac{1}{|\mathcal{M}(p)|}\sum_{p'\in\mathcal{M}(p)}\overline{\mathrm{RR}}_{p'}\Bigr]$$
 
 Women with $\mathcal{M}(p)=\emptyset$ are dropped and counted.
 
-*Optional headline number: gap decomposition (Oaxaca-Blinder style).* Fit the regression $\operatorname{RR}=\mathbf{x}^\top\boldsymbol{\beta}_g+\varepsilon$ separately for each group $g\in\{M,F\}$, where $\mathbf{x}$ contains an intercept and the degree terms, and let $\bar{\mathbf{x}}_g$ be the group's average of $\mathbf{x}$. Then:
+*Optional headline number: gap decomposition (Oaxaca-Blinder style).* Fit the regression $\mathrm{RR}=\mathbf{x}^\top\boldsymbol{\beta}_g+\varepsilon$ separately for each group $g\in\{M,F\}$, where $\mathbf{x}$ contains an intercept and the degree terms, and let $\bar{\mathbf{x}}_g$ be the group's average of $\mathbf{x}$. Then:
 
-$$\underbrace{\overline{\operatorname{RR}}_M-\overline{\operatorname{RR}}_F}_{\text{total gap}}=\underbrace{(\bar{\mathbf{x}}_M-\bar{\mathbf{x}}_F)^\top\boldsymbol{\beta}_M}_{\text{explained by connectivity}}+\underbrace{\bar{\mathbf{x}}_F^\top(\boldsymbol{\beta}_M-\boldsymbol{\beta}_F)}_{\text{unexplained}}$$
+$$\underbrace{\overline{\mathrm{RR}}_M-\overline{\mathrm{RR}}_F}_{\text{total gap}}=\underbrace{(\bar{\mathbf{x}}_M-\bar{\mathbf{x}}_F)^\top\boldsymbol{\beta}_M}_{\text{explained by connectivity}}+\underbrace{\bar{\mathbf{x}}_F^\top(\boldsymbol{\beta}_M-\boldsymbol{\beta}_F)}_{\text{unexplained}}$$
 
-$$\text{Share explained}=\frac{(\bar{\mathbf{x}}_M-\bar{\mathbf{x}}_F)^\top\boldsymbol{\beta}_M}{\overline{\operatorname{RR}}_M-\overline{\operatorname{RR}}_F}$$
+$$\text{Share explained}=\frac{(\bar{\mathbf{x}}_M-\bar{\mathbf{x}}_F)^\top\boldsymbol{\beta}_M}{\overline{\mathrm{RR}}_M-\overline{\mathrm{RR}}_F}$$
 
 This is descriptive, not causal. The split depends on which group is the reference ($\boldsymbol{\beta}_M$ here), the share is unstable when the total gap is near $0$, and its uncertainty should come from a bootstrap over people.
 
