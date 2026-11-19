@@ -175,11 +175,10 @@ entities:
       subregion not reviewed in this batch.'
   Q43:
     label: Turkey
-    status: unmapped_by_policy
-    region_code: null
+    status: approved_working_decision
+    region_code: '142'
     p27_occurrences: 7311
-    rationale: 'Approved policy decision: territory spans Europe and Asia; no single primary UN M49 broad
-      region assigned.'
+    rationale: 'UN M49. places Turkey in Western Asia (142); transcontinental countries get one region.'
   Q45:
     label: Portugal
     status: approved_working_decision
@@ -2136,10 +2135,10 @@ entities:
     rationale: Assigned to one broad UN M49 region under the project's working policy.
   Q15180:
     label: Soviet Union
-    status: unmapped_by_policy
-    region_code: null
+    status: approved_working_decision
+    region_code: 150
     p27_occurrences: 20478
-    rationale: Historical state spanning Europe and Asia; no single broad region assigned.
+    rationale: Historical state assigned to the region of its principal successor (Russia, Europe).
   Q15581:
     label: Principat de Catalunya
     status: approved_working_decision
@@ -2631,10 +2630,10 @@ entities:
     rationale: Approved after review; assigned to Oceania under the UN M49 broad-region scheme.
   Q34266:
     label: Russian Empire
-    status: unmapped_by_policy
-    region_code: null
+    status: approved_working_decision
+    region_code: '150'
     p27_occurrences: 9580
-    rationale: Historical empire spanning Europe and Asia; no single broad region assigned.
+    rationale: Historical state assigned to the region of its principal successor (Russia, Europe).
   Q34754:
     label: Somaliland
     status: approved_working_decision
