@@ -1,0 +1,6 @@
+gender_status,humans,with_award,with_occupation,share_of_humans
+female,256961,17326,129571,0.1702
+male,1239751,80901,673478,0.8212
+missing,11485,129,3718,0.0076
+multi_valued,254,20,129,0.0002
+other_value,1184,57,679,0.0008
