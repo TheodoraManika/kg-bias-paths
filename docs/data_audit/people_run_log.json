@@ -1,0 +1,15 @@
+{
+  "git_commit": "1d3d110417c8a8ab5e414986b13227ff07d392d5",
+  "args": {
+    "w5m": "data/raw/wikidata5m",
+    "attrs": "data/raw/wikidata_attributes/attributes_2026-10-25.tsv",
+    "regions": "configs/data/regions.yaml",
+    "occupation_classes": "configs/data/occupation_classes_p279.yaml",
+    "out": "data/processed/people_v2.parquet",
+    "audit_dir": "docs/data_audit",
+    "skip_expected_check": false
+  },
+  "humans": 1509635,
+  "attrs_missing": 10469,
+  "seconds": 34.0
+}

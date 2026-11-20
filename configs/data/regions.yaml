@@ -26,20 +26,20 @@ source_audit:
   missing_labels: 19
   missing_rationales: 167
 decision_counts:
-  'approved_working_decision': 2105
+  'approved_working_decision': 2108
   'not_applicable_by_policy': 178
-  'unmapped_by_policy': 40
+  'unmapped_by_policy': 37
 region_counts:
   '002': 243
   '019': 162
-  '142': 753
-  '150': 903
+  '142': 754
+  '150': 905
   '009': 44
 entities:
   Q16:
     label: Canada
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 54919
     rationale: 'Approved primary classification under the UN M49 broad-region scheme: Americas (019).
       Optional subregion not reviewed in this batch.'
@@ -99,7 +99,7 @@ entities:
   Q30:
     label: United States
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 362724
     rationale: 'Approved primary classification under the UN M49 broad-region scheme: Americas (019).
       Optional subregion not reviewed in this batch.'
@@ -195,7 +195,7 @@ entities:
   Q77:
     label: Uruguay
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 2679
     rationale: 'Approved primary classification under the UN M49 broad-region scheme: Americas (019).
       Optional subregion not reviewed in this batch.'
@@ -229,7 +229,7 @@ entities:
   Q96:
     label: Mexico
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 12429
     rationale: 'Approved primary classification under the UN M49 broad-region scheme: Americas (019).
       Optional subregion not reviewed in this batch.'
@@ -278,7 +278,7 @@ entities:
   Q155:
     label: Brazil
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 14785
     rationale: 'Approved primary classification under the UN M49 broad-region scheme: Americas (019).
       Optional subregion not reviewed in this batch.'
@@ -483,20 +483,20 @@ entities:
   Q241:
     label: Cuba
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 3478
     rationale: 'Approved primary classification under the UN M49 broad-region scheme: Americas (019).
       Optional subregion not reviewed in this batch.'
   Q242:
     label: Belize
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 228
     rationale: 'UN M49 broad region: Americas (019).'
   Q244:
     label: Barbados
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 399
     rationale: 'Approved primary classification under the project regional scheme: Americas (019). Optional
       subregion not reviewed in this batch.'
@@ -531,7 +531,7 @@ entities:
   Q298:
     label: Chile
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 3617
     rationale: 'Approved primary classification under the UN M49 broad-region scheme: Americas (019).
       Optional subregion not reviewed in this batch.'
@@ -578,21 +578,21 @@ entities:
   Q408:
     label: Australia
     status: approved_working_decision
-    region_code: 009
+    region_code: '009'
     p27_occurrences: 42364
     rationale: 'Approved primary classification under the UN M49 broad-region scheme: Oceania (009). Optional
       subregion not reviewed in this batch.'
   Q414:
     label: Argentina
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 11042
     rationale: 'Approved primary classification under the UN M49 broad-region scheme: Americas (019).
       Optional subregion not reviewed in this batch.'
   Q419:
     label: Peru
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 2095
     rationale: 'Approved primary classification under the project regional scheme: Americas (019). Optional
       subregion not reviewed in this batch.'
@@ -639,7 +639,7 @@ entities:
   Q664:
     label: New Zealand
     status: approved_working_decision
-    region_code: 009
+    region_code: '009'
     p27_occurrences: 17027
     rationale: 'Approved primary classification under the UN M49 broad-region scheme: Oceania (009). Optional
       subregion not reviewed in this batch.'
@@ -653,68 +653,68 @@ entities:
   Q672:
     label: Tuvalu
     status: approved_working_decision
-    region_code: 009
+    region_code: '009'
     p27_occurrences: 82
     rationale: 'UN M49 broad region: Oceania (009).'
   Q678:
     label: Tonga
     status: approved_working_decision
-    region_code: 009
+    region_code: '009'
     p27_occurrences: 276
     rationale: 'UN M49 broad region: Oceania (009).'
   Q683:
     label: Samoa
     status: approved_working_decision
-    region_code: 009
+    region_code: '009'
     p27_occurrences: 232
     rationale: 'UN M49 broad region: Oceania (009).'
   Q685:
     label: Solomon Islands
     status: approved_working_decision
-    region_code: 009
+    region_code: '009'
     p27_occurrences: 151
     rationale: 'UN M49 broad region: Oceania (009).'
   Q686:
     label: Vanuatu
     status: approved_working_decision
-    region_code: 009
+    region_code: '009'
     p27_occurrences: 140
     rationale: 'UN M49 broad region: Oceania (009).'
   Q691:
     label: Papua New Guinea
     status: approved_working_decision
-    region_code: 009
+    region_code: '009'
     p27_occurrences: 393
     rationale: 'UN M49 broad region: Oceania (009).'
   Q695:
     label: Palau
     status: approved_working_decision
-    region_code: 009
+    region_code: '009'
     p27_occurrences: 58
     rationale: 'UN M49 broad region: Oceania (009).'
   Q697:
     label: Nauru
     status: approved_working_decision
-    region_code: 009
+    region_code: '009'
     p27_occurrences: 69
     rationale: 'UN M49 broad region: Oceania (009).'
   Q702:
     label: Federated States of Micronesia
     status: approved_working_decision
-    region_code: 009
+    region_code: '009'
     p27_occurrences: 58
     rationale: 'UN M49 broad region: Oceania (009).'
   Q709:
     label: Marshall Islands
     status: approved_working_decision
-    region_code: 009
+    region_code: '009'
     p27_occurrences: 47
     rationale: Assigned to UN M49 broad region Oceania (009) under the approved geographic classification
       scheme.
   Q710:
     label: Kiribati
     status: approved_working_decision
-    region_code: 009
+    region_code: '009'
     p27_occurrences: 70
     rationale: Assigned to UN M49 broad region Oceania (009) under the approved geographic classification
       scheme.
@@ -728,126 +728,126 @@ entities:
   Q712:
     label: Fiji
     status: approved_working_decision
-    region_code: 009
+    region_code: '009'
     p27_occurrences: 608
     rationale: 'Approved primary classification under the project regional scheme: Oceania (009). Optional
       subregion not reviewed in this batch.'
   Q717:
     label: Venezuela
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 2903
     rationale: 'Approved primary classification under the UN M49 broad-region scheme: Americas (019).
       Optional subregion not reviewed in this batch.'
   Q730:
     label: Suriname
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 236
     rationale: 'UN M49 broad region: Americas (019).'
   Q733:
     label: Paraguay
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 1271
     rationale: 'Approved primary classification under the project regional scheme: Americas (019). Optional
       subregion not reviewed in this batch.'
   Q734:
     label: Guyana
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 335
     rationale: 'UN M49 broad region: Americas (019).'
   Q736:
     label: Ecuador
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 1206
     rationale: 'Approved primary classification under the project regional scheme: Americas (019). Optional
       subregion not reviewed in this batch.'
   Q739:
     label: Colombia
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 3639
     rationale: 'Approved primary classification under the UN M49 broad-region scheme: Americas (019).
       Optional subregion not reviewed in this batch.'
   Q750:
     label: Bolivia
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 834
     rationale: 'Approved primary classification under the project regional scheme: Americas (019). Optional
       subregion not reviewed in this batch.'
   Q754:
     label: Trinidad and Tobago
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 834
     rationale: 'Approved primary classification under the project regional scheme: Americas (019). Optional
       subregion not reviewed in this batch.'
   Q757:
     label: Saint Vincent and the Grenadines
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 96
     rationale: 'UN M49 broad region: Americas (019).'
   Q760:
     label: Saint Lucia
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 180
     rationale: 'UN M49 broad region: Americas (019).'
   Q763:
     label: Saint Kitts and Nevis
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 107
     rationale: 'UN M49 broad region: Americas (019).'
   Q766:
     label: Jamaica
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 2007
     rationale: 'Approved primary classification under the project regional scheme: Americas (019). Optional
       subregion not reviewed in this batch.'
   Q769:
     label: Grenada
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 183
     rationale: 'UN M49 broad region: Americas (019).'
   Q774:
     label: Guatemala
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 663
     rationale: 'Approved primary classification under the project regional scheme: Americas (019). Optional
       subregion not reviewed in this batch.'
   Q778:
     label: The Bahamas
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 298
     rationale: 'Approved primary classification under the project regional scheme: Americas (019). Optional
       subregion not reviewed in this batch.'
   Q781:
     label: Antigua and Barbuda
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 208
     rationale: 'UN M49 broad region: Americas (019).'
   Q783:
     label: Honduras
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 705
     rationale: 'Approved primary classification under the project regional scheme: Americas (019). Optional
       subregion not reviewed in this batch.'
   Q784:
     label: Dominica
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 163
     rationale: 'Approved primary classification under the project regional scheme: Americas (019). Optional
       subregion not reviewed in this batch.'
@@ -861,21 +861,21 @@ entities:
   Q786:
     label: Dominican Republic
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 1633
     rationale: 'Approved primary classification under the project regional scheme: Americas (019). Optional
       subregion not reviewed in this batch.'
   Q790:
     label: Haiti
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 829
     rationale: 'Approved primary classification under the project regional scheme: Americas (019). Optional
       subregion not reviewed in this batch.'
   Q792:
     label: El Salvador
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 762
     rationale: 'Approved primary classification under the project regional scheme: Americas (019). Optional
       subregion not reviewed in this batch.'
@@ -896,7 +896,7 @@ entities:
   Q800:
     label: Costa Rica
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 907
     rationale: 'Approved primary classification under the project regional scheme: Americas (019). Optional
       subregion not reviewed in this batch.'
@@ -910,7 +910,7 @@ entities:
   Q804:
     label: Panama
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 710
     rationale: 'Approved primary classification under the project regional scheme: Americas (019). Optional
       subregion not reviewed in this batch.'
@@ -944,7 +944,7 @@ entities:
   Q811:
     label: Nicaragua
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 356
     rationale: 'Approved primary classification under the project regional scheme: Americas (019). Optional
       subregion not reviewed in this batch.'
@@ -1459,7 +1459,7 @@ entities:
   Q1183:
     label: Puerto Rico
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 6
     rationale: 'Approved primary classification under the project regional scheme: Americas (019). Optional
       subregion not reviewed in this batch.'
@@ -1530,13 +1530,13 @@ entities:
   Q1371:
     label: West Virginia
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 1
     rationale: Assigned to one broad UN M49 region under the project's working policy.
   Q1384:
     label: p:ny
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 1
     rationale: 'Approved primary classification under the UN M49 broad-region scheme: Americas (019).
       State of New York, United States; geographic classification is Americas. Optional subregion not
@@ -1599,7 +1599,7 @@ entities:
   Q2003:
     label: newfoundland and labrador, canada
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 1
     rationale: 'Approved primary classification under the UN M49 broad-region scheme: Americas (019).
       Newfoundland and Labrador, Canada. Optional subregion not reviewed in this batch.'
@@ -1660,13 +1660,13 @@ entities:
   Q3224:
     label: New South Wales
     status: approved_working_decision
-    region_code: 009
+    region_code: '009'
     p27_occurrences: 2
     rationale: Australian state.
   Q3306:
     label: Panama City
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 1
     rationale: 'Approved geographic classification: UN M49 broad region 019.'
   Q3908:
@@ -1785,7 +1785,7 @@ entities:
   Q5785:
     label: Cayman Islands
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 38
     rationale: Assigned to UN M49 broad region Americas (019) under the approved geographic classification
       scheme.
@@ -1916,7 +1916,7 @@ entities:
   Q8652:
     label: Miami
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 1
     rationale: Geographic entity located in the Americas.
   Q8673:
@@ -1953,7 +1953,7 @@ entities:
   Q8930:
     label: Colonial Venezuela
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 1
     rationale: Geographic entity located in the Americas.
   Q8959:
@@ -1966,14 +1966,14 @@ entities:
   Q8965:
     label: Viceroyalty of New Granada
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 5
     rationale: Working assignment to broad UN M49 region 019, following the project's one-region mapping
       policy.
   Q9648:
     label: Falkland Islands
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 2
     rationale: Assigned to one broad UN M49 region under the project's working policy.
   Q9676:
@@ -2093,7 +2093,7 @@ entities:
   Q13353:
     label: Montserrat
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 8
     rationale: 'Validation review approved: geographic entity assigned to Americas (019), Caribbean (029)
       under the UN M49 geographic scheme.'
@@ -2106,7 +2106,7 @@ entities:
   Q13695:
     label: Tenochtitlan
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 1
     rationale: Assigned to one broad UN M49 region under the project's working policy.
   Q13950:
@@ -2136,7 +2136,7 @@ entities:
   Q15180:
     label: Soviet Union
     status: approved_working_decision
-    region_code: 150
+    region_code: '150'
     p27_occurrences: 20478
     rationale: Historical state assigned to the region of its principal successor (Russia, Europe).
   Q15581:
@@ -2186,7 +2186,7 @@ entities:
   Q17054:
     label: administrative divisions of martinique
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 2
     rationale: 'Approved primary classification under the UN M49 broad-region scheme: Americas (019).
       Administrative divisions of Martinique in the Americas. Optional subregion not reviewed in this
@@ -2218,7 +2218,7 @@ entities:
   Q17557:
     label: California Republic
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 1
   Q18097:
     label: Korea
@@ -2229,7 +2229,7 @@ entities:
   Q18221:
     label: Turks and Caicos Islands
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 4
     rationale: Working assignment to broad UN M49 region 019, following the project's one-region mapping
       policy.
@@ -2285,7 +2285,7 @@ entities:
   Q23635:
     label: Bermuda
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 155
     rationale: 'Geographic classification: Americas (019).'
   Q23681:
@@ -2324,14 +2324,14 @@ entities:
   Q25227:
     label: Netherlands Antilles
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 12
     rationale: Assigned to UN M49 broad region Americas (019) under the approved geographic classification
       scheme.
   Q25228:
     label: Anguilla
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 6
     rationale: Caribbean territory.
   Q25230:
@@ -2344,7 +2344,7 @@ entities:
   Q25305:
     label: British Virgin Islands
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 27
     rationale: Assigned to UN M49 broad region Americas (019) under the approved geographic classification
       scheme.
@@ -2383,7 +2383,7 @@ entities:
   Q26988:
     label: Cook Islands
     status: approved_working_decision
-    region_code: 009
+    region_code: '009'
     p27_occurrences: 40
     rationale: Assigned to UN M49 broad region Oceania (009) under the approved geographic classification
       scheme.
@@ -2516,7 +2516,7 @@ entities:
   Q28573:
     label: Inca Empire
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 6
     rationale: 'Batch 2 working classification accepted for the mapping: broad UN M49 region 019. Historical
       application is project-specific.'
@@ -2548,7 +2548,7 @@ entities:
   Q31057:
     label: Norfolk Island
     status: approved_working_decision
-    region_code: 009
+    region_code: '009'
     p27_occurrences: 2
     rationale: 'Validation review approved: geographic entity assigned to Oceania (009), Australia and
       New Zealand (053) under the UN M49 geographic scheme.'
@@ -2613,7 +2613,7 @@ entities:
   Q33788:
     label: New Caledonia
     status: approved_working_decision
-    region_code: 009
+    region_code: '009'
     p27_occurrences: 1
     rationale: Pacific territory.
   Q33946:
@@ -2625,7 +2625,7 @@ entities:
   Q34020:
     label: Niue
     status: approved_working_decision
-    region_code: 009
+    region_code: '009'
     p27_occurrences: 23
     rationale: Approved after review; assigned to Oceania under the UN M49 broad-region scheme.
   Q34266:
@@ -2678,7 +2678,7 @@ entities:
   Q35672:
     label: communications on the pitcairn islands
     status: approved_working_decision
-    region_code: 009
+    region_code: '009'
     p27_occurrences: 2
     rationale: 'Validation review approved: geographic entity assigned to Oceania (009), Polynesia (061)
       under the UN M49 geographic scheme.'
@@ -2698,7 +2698,7 @@ entities:
   Q36823:
     label: Tokelau
     status: approved_working_decision
-    region_code: 009
+    region_code: '009'
     p27_occurrences: 2
     rationale: Assigned to one broad UN M49 region under the project's working policy.
   Q37024:
@@ -2724,7 +2724,7 @@ entities:
   Q38610:
     label: Dominion of Newfoundland
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 3
     rationale: Working assignment to broad UN M49 region 019, following the project's one-region mapping
       policy.
@@ -3077,7 +3077,7 @@ entities:
   Q60176:
     label: Yucatán
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 1
     rationale: 'Approved geographic classification: UN M49 broad region 019.'
   Q61292:
@@ -3144,7 +3144,7 @@ entities:
   Q62823:
     label: Barranquilla
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 1
     rationale: 'Approved geographic classification: UN M49 broad region 019.'
   Q62943:
@@ -3291,14 +3291,14 @@ entities:
   Q81931:
     label: Confederate States of America
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 62
     rationale: Assigned to UN M49 broad region Americas (019) under the approved geographic classification
       scheme.
   Q82112:
     label: State of Mexico
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 1
     rationale: 'Batch 9 approved: classified geographically in Americas under the UN M49 broad-region
       scheme.'
@@ -3583,7 +3583,7 @@ entities:
   Q131347:
     label: Oahu
     status: approved_working_decision
-    region_code: 009
+    region_code: '009'
     p27_occurrences: 1
     rationale: Assigned to one broad UN M49 region under the project's working policy.
   Q131802:
@@ -4038,7 +4038,7 @@ entities:
   Q156418:
     label: Kingdom of Hawaiʻi
     status: approved_working_decision
-    region_code: 009
+    region_code: '009'
     p27_occurrences: 186
     rationale: Historical island kingdom in Polynesia.
   Q156882:
@@ -4204,7 +4204,7 @@ entities:
   Q162192:
     label: Riograndense Republic
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 1
   Q163268:
     label: principality of tver
@@ -4349,20 +4349,20 @@ entities:
   Q170588:
     label: Republic of Texas
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 15
     rationale: 'Batch 12 review: assigned to UN M49 broad region Americas.'
   Q170603:
     label: New Spain
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 390
     rationale: Historical territory of New Spain included areas in the Americas; assigned to the Americas
       broad region.
   Q170604:
     label: New France
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 24
     rationale: Approved after review; assigned to the Americas under the UN M49 broad-region scheme.
   Q170770:
@@ -4560,7 +4560,7 @@ entities:
   Q179997:
     label: the 13 english colonies
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 18
     rationale: 'Batch 12 review: assigned to UN M49 broad region Americas.'
   Q180086:
@@ -4766,7 +4766,7 @@ entities:
   Q190025:
     label: Federal Republic of Central America
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 9
     rationale: 'Batch 9 approved: classified geographically in Americas under the UN M49 broad-region
       scheme.'
@@ -4897,7 +4897,7 @@ entities:
   Q199821:
     label: Gran Colombia
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 7
     rationale: Historical state in northern South America.
   Q199841:
@@ -4987,7 +4987,7 @@ entities:
   Q205057:
     label: Cusco Department
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 1
   Q205662:
     label: Tokugawa shogunate
@@ -5049,7 +5049,7 @@ entities:
   Q207353:
     label: Acadia
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 1
   Q207497:
     label: Macedonia
@@ -5190,7 +5190,7 @@ entities:
   Q211435:
     label: viceroyalty of peru
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 27
     rationale: 'Batch 9 approved: classified geographically in Americas under the UN M49 broad-region
       scheme.'
@@ -5259,7 +5259,7 @@ entities:
   Q214827:
     label: Copán
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 1
   Q215443:
     label: Swedish Empire
@@ -5309,7 +5309,7 @@ entities:
   Q217230:
     label: Empire of Brazil
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 13
     rationale: 'Batch 9 approved: classified geographically in Americas under the UN M49 broad-region
       scheme.'
@@ -5513,7 +5513,7 @@ entities:
   Q248452:
     label: British North America
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 24
     rationale: Assigned to UN M49 broad region Americas (019) under the approved geographic classification
       scheme.
@@ -5555,7 +5555,7 @@ entities:
   Q251668:
     label: Province of Quebec
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 5
     rationale: Working assignment to broad UN M49 region 019, following the project's one-region mapping
       policy.
@@ -5600,7 +5600,7 @@ entities:
   Q258532:
     label: british america
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 29
     rationale: 'Batch 13 approved: assigned to the UN M49 broad region Americas (code 019); geographic
       classification does not imply political status.'
@@ -6083,14 +6083,14 @@ entities:
   Q371334:
     label: mexican empire
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 1
     rationale: 'Batch 13 approved: assigned to the UN M49 broad region Americas (code 019); geographic
       classification does not imply political status.'
   Q371354:
     label: Castelar
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 1
     rationale: 'Batch 13 approved: assigned to the UN M49 broad region Americas (code 019); geographic
       classification does not imply political status.'
@@ -6149,7 +6149,7 @@ entities:
   Q382593:
     label: New Netherland
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 3
     rationale: Working assignment to broad UN M49 region 019, following the project's one-region mapping
       policy.
@@ -6659,7 +6659,7 @@ entities:
   Q530560:
     label: Papua (Australian territory)
     status: approved_working_decision
-    region_code: 009
+    region_code: '009'
     p27_occurrences: 1
     rationale: 'Batch 14 approved: assigned to UN M49 broad region Oceania (code 009); assignment does
       not imply political status.'
@@ -6746,7 +6746,7 @@ entities:
   Q541745:
     label: Capitania General de Puerto Rico
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 2
     rationale: 'Batch 14 approved: assigned to UN M49 broad region Americas (code 019); assignment does
       not imply political status.'
@@ -6785,7 +6785,7 @@ entities:
   Q547795:
     label: Territory of Hawaii
     status: approved_working_decision
-    region_code: 009
+    region_code: '009'
     p27_occurrences: 3
     rationale: Working assignment to broad UN M49 region 009, following the project's one-region mapping
       policy.
@@ -6832,7 +6832,7 @@ entities:
   Q555528:
     label: Spanish Florida
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 1
     rationale: 'Approved geographic classification: UN M49 broad region 019.'
   Q555994:
@@ -7199,7 +7199,7 @@ entities:
   Q630882:
     label: República de la Nueva Granada
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 4
     rationale: 'Approved primary classification under the UN M49 broad-region scheme: Americas (019).
       Optional subregion not reviewed in this batch.'
@@ -7327,7 +7327,7 @@ entities:
   Q652560:
     label: West Indies Federation
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 2
     rationale: 'Batch 14 approved: assigned to UN M49 broad region Americas (code 019); assignment does
       not imply political status.'
@@ -7419,7 +7419,7 @@ entities:
   Q669037:
     label: Caribbean basin
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 1
     rationale: 'Batch 14 approved: assigned to UN M49 broad region Americas (code 019); assignment does
       not imply political status.'
@@ -8009,13 +8009,13 @@ entities:
   Q738144:
     label: United Provinces of the Río de la Plata
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 1
     rationale: Geographic entity located in the Americas.
   Q744042:
     label: Grand Duchy of Avram
     status: approved_working_decision
-    region_code: 009
+    region_code: '009'
     p27_occurrences: 1
     rationale: Assigned to Oceania under the project's geographic classification.
   Q744631:
@@ -8040,7 +8040,7 @@ entities:
   Q748300:
     label: Louisiana
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 1
     rationale: Geographic entity located in the Americas.
   Q750583:
@@ -8079,13 +8079,13 @@ entities:
   Q763808:
     label: Captaincy General of Chile
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 1
     rationale: Geographic entity located in the Americas.
   Q764687:
     label: Tillamook
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 1
     rationale: Geographic entity located in the Americas.
   Q766501:
@@ -8112,7 +8112,7 @@ entities:
   Q769668:
     label: Province of New York
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 1
     rationale: Geographic entity located in the Americas.
   Q769782:
@@ -8175,13 +8175,13 @@ entities:
   Q794210:
     label: Aztec Triple Alliance
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 1
     rationale: Geographic entity located in the Americas.
   Q795427:
     label: Province du Haut-Canada
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 5
     rationale: 'Batch 15 approved: assigned to UN M49 broad region Americas (code 019); assignment does
       not imply political status.'
@@ -8195,7 +8195,7 @@ entities:
   Q796925:
     label: Tlatelolco
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 1
     rationale: Geographic entity located in the Americas.
   Q797422:
@@ -8312,7 +8312,7 @@ entities:
   Q829655:
     label: Danish Virgin Islands
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 1
     rationale: 'Batch 15 approved: assigned to UN M49 broad region Americas (code 019); assignment does
       not imply political status.'
@@ -8437,7 +8437,7 @@ entities:
   Q842390:
     label: Tongan Empire
     status: approved_working_decision
-    region_code: 009
+    region_code: '009'
     p27_occurrences: 1
     rationale: 'Batch 15 approved: assigned to UN M49 broad region Oceania (code 009); assignment does
       not imply political status.'
@@ -8494,7 +8494,7 @@ entities:
   Q847008:
     label: Raiatea
     status: approved_working_decision
-    region_code: 009
+    region_code: '009'
     p27_occurrences: 1
     rationale: 'Batch 15 approved: assigned to UN M49 broad region Oceania (code 009); assignment does
       not imply political status.'
@@ -8600,7 +8600,7 @@ entities:
   Q861551:
     label: Saint-Domingue
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 13
     rationale: 'Batch 9 approved: classified geographically in Americas under the UN M49 broad-region
       scheme.'
@@ -8834,7 +8834,7 @@ entities:
   Q899706:
     label: Peru–Bolivian Confederation
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 2
     rationale: 'Approved primary classification under the UN M49 broad-region scheme: Americas (019).
       Optional subregion not reviewed in this batch.'
@@ -8919,7 +8919,7 @@ entities:
   Q918126:
     label: British Guiana
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 6
     rationale: 'Approved primary classification under the UN M49 broad-region scheme: Americas (019).
       British Guiana in South America. Optional subregion not reviewed in this batch.'
@@ -8951,7 +8951,7 @@ entities:
   Q920396:
     label: british west indies
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 2
     rationale: 'Approved primary classification under the UN M49 broad-region scheme: Americas (019).
       Optional subregion not reviewed in this batch.'
@@ -9304,7 +9304,7 @@ entities:
   Q1057542:
     label: Republic of Hawaii
     status: approved_working_decision
-    region_code: 009
+    region_code: '009'
     p27_occurrences: 4
     rationale: 'Batch 9 approved: classified geographically in Oceania under the UN M49 broad-region scheme.'
   Q1059707:
@@ -9322,7 +9322,7 @@ entities:
   Q1061488:
     label: Territories of the United States of Colombia
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 2
     rationale: 'Approved primary classification under the UN M49 broad-region scheme: Americas (019).
       Historical territories of the United States of Colombia in South America. Optional subregion not
@@ -9337,7 +9337,7 @@ entities:
   Q1062516:
     label: Española Island
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 2
     rationale: Approved after review; assigned to the Americas under the UN M49 broad-region scheme.
   Q1062546:
@@ -9424,7 +9424,7 @@ entities:
   Q1070529:
     label: Colony of Virginia
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 2
     rationale: Working broad-region assignment under UN M49 policy (019).
   Q1071439:
@@ -9470,7 +9470,7 @@ entities:
   Q1083009:
     label: purpleorb/principality of wy
     status: approved_working_decision
-    region_code: 009
+    region_code: '009'
     p27_occurrences: 1
     rationale: 'Approved primary classification under the UN M49 broad-region scheme: Oceania (009). Optional
       subregion not reviewed in this batch.'
@@ -9532,7 +9532,7 @@ entities:
   Q1121436:
     label: united province of canada
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 14
     rationale: 'Approved primary classification under the UN M49 broad-region scheme: Americas (019).
       Optional subregion not reviewed in this batch.'
@@ -9565,7 +9565,7 @@ entities:
   Q1134180:
     label: Lower Canada
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 36
     rationale: 'Batch 9 approved: classified geographically in Americas under the UN M49 broad-region
       scheme.'
@@ -9625,7 +9625,7 @@ entities:
   Q1141215:
     label: granadine confederacy
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 1
     rationale: 'Approved primary classification under the UN M49 broad-region scheme: Americas (019).
       Optional subregion not reviewed in this batch.'
@@ -9849,7 +9849,7 @@ entities:
   Q1191350:
     label: dorchester company colony
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 4
     rationale: 'Approved primary classification under the UN M49 broad-region scheme: Americas (019).
       Optional subregion not reviewed in this batch.'
@@ -10411,7 +10411,7 @@ entities:
   Q1472560:
     label: Nova Granada
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 1
     rationale: Assigned to one broad UN M49 region under the project's working policy.
   Q1472873:
@@ -10504,7 +10504,7 @@ entities:
   Q1539984:
     label: Rimatara
     status: approved_working_decision
-    region_code: 009
+    region_code: '009'
     p27_occurrences: 1
     rationale: Assigned to one broad UN M49 region under the project's working policy.
   Q1541613:
@@ -10611,7 +10611,7 @@ entities:
   Q1643555:
     label: British Honduras
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 15
     rationale: 'Batch 9 approved: classified geographically in Americas under the UN M49 broad-region
       scheme.'
@@ -10635,7 +10635,7 @@ entities:
   Q1649602:
     label: Vermont Republic
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 1
   Q1649871:
     label: Kingdom of Poland
@@ -10688,7 +10688,7 @@ entities:
   Q1723904:
     label: kaw nation, oklahoma
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 2
     rationale: 'User override: Kaw Nation, Oklahoma assigned to the Americas.'
   Q1730130:
@@ -10765,13 +10765,13 @@ entities:
   Q1780114:
     label: Van Diemen's Land
     status: approved_working_decision
-    region_code: 009
+    region_code: '009'
     p27_occurrences: 2
     rationale: Working broad-region assignment under UN M49 policy (009).
   Q1782406:
     label: Apodaca
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 1
   Q1783098:
     label: Grand Duchy of Posen
@@ -10782,7 +10782,7 @@ entities:
   Q1783171:
     label: Navajo Nation
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 4
     rationale: Working assignment to broad UN M49 region 019, following the project's one-region mapping
       policy.
@@ -10816,7 +10816,7 @@ entities:
   Q1796551:
     label: Leeward Island Federation
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 3
     rationale: 'Batch 12 review: assigned to UN M49 broad region Americas.'
   Q1811029:
@@ -11009,7 +11009,7 @@ entities:
   Q2022804:
     label: Socialist Republic of Chile
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 1
     rationale: 'Batch 12 review: assigned to UN M49 broad region Americas.'
   Q2029317:
@@ -11033,7 +11033,7 @@ entities:
   Q2039931:
     label: captaincy general of cuba
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 1
     rationale: 'Batch 12 review: assigned to UN M49 broad region Americas.'
   Q2041508:
@@ -11050,7 +11050,7 @@ entities:
   Q2047652:
     label: Texcoco
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 2
     rationale: Working broad-region assignment under UN M49 policy (019).
   Q2051582:
@@ -11066,13 +11066,13 @@ entities:
   Q2077243:
     label: Captaincy general of guatemala
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 1
     rationale: 'Batch 12 review: assigned to UN M49 broad region Americas.'
   Q2077264:
     label: New Kingdom of Granada
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 2
     rationale: 'Batch 12 review: assigned to UN M49 broad region Americas.'
   Q2077648:
@@ -11089,14 +11089,14 @@ entities:
   Q2079909:
     label: Province of Massachusetts Bay
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 6
     rationale: 'Batch 2 working classification accepted for the mapping: broad UN M49 region 019. Historical
       application is project-specific.'
   Q2088324:
     label: Colonial Brazil
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 6
     rationale: Historical territory in South America.
   Q2090473:
@@ -11268,7 +11268,7 @@ entities:
   Q2301972:
     label: papua and new guinea
     status: approved_working_decision
-    region_code: 009
+    region_code: '009'
     p27_occurrences: 1
     rationale: 'Batch 12 review: assigned to UN M49 broad region Oceania.'
   Q2305208:
@@ -11313,7 +11313,7 @@ entities:
   Q2314963:
     label: Kingdom of Cusco
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 1
   Q2320005:
     label: Ptolemaic Kingdom
@@ -11334,12 +11334,12 @@ entities:
   Q2335128:
     label: Province of New Jersey
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 1
   Q2335224:
     label: Colony of Rhode Island and Plantations
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 1
   Q2336882:
     label: ukrainian republic of the far east
@@ -11499,7 +11499,7 @@ entities:
   Q2452027:
     label: Province of Maryland
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 1
   Q2453974:
     label: almighty don host
@@ -11562,7 +11562,7 @@ entities:
   Q2526023:
     label: Colony of Jamaica
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 7
     rationale: 'Batch 2 working classification accepted for the mapping: broad UN M49 region 019. Historical
       application is project-specific.'
@@ -11593,7 +11593,7 @@ entities:
   Q2569593:
     label: French Canada
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 9
     rationale: 'Batch 2 working classification accepted for the mapping: broad UN M49 region 019. Historical
       application is project-specific.'
@@ -11644,7 +11644,7 @@ entities:
   Q2590690:
     label: Sisseton Wahpeton Oyate
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 1
   Q2594661:
     label: Kingdom of Gwent
@@ -11663,14 +11663,14 @@ entities:
   Q2605410:
     label: purépecha kingdom
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 1
     rationale: 'Batch 13 approved: assigned to the UN M49 broad region Americas (code 019); geographic
       classification does not imply political status.'
   Q2608040:
     label: New Andalusia Governorate
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 1
   Q2608489:
     label: aztec government
@@ -11840,7 +11840,7 @@ entities:
   Q2935756:
     label: Canada East
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 8
     rationale: 'Batch 2 working classification accepted for the mapping: broad UN M49 region 019. Historical
       application is project-specific.'
@@ -11854,7 +11854,7 @@ entities:
   Q2979717:
     label: Empire of Haiti (1849-1859)
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 1
     rationale: 'Batch 13 approved: assigned to the UN M49 broad region Americas (code 019); geographic
       classification does not imply political status.'
@@ -11868,7 +11868,7 @@ entities:
   Q2984260:
     label: Newfoundland Colony
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 1
   Q2988765:
     label: Sultanate of Siak Sri Indrapura
@@ -11903,7 +11903,7 @@ entities:
   Q3028514:
     label: Tahitian kingdom
     status: approved_working_decision
-    region_code: 009
+    region_code: '009'
     p27_occurrences: 3
     rationale: 'Batch 13 approved: assigned to the UN M49 broad region Oceania (code 009); geographic
       classification does not imply political status.'
@@ -12161,7 +12161,7 @@ entities:
   Q3336808:
     label: Chickasaw Nation
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 5
     rationale: Working assignment to broad UN M49 region 019, following the project's one-region mapping
       policy.
@@ -12212,7 +12212,7 @@ entities:
   Q3408341:
     label: Venezuela Province
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 2
     rationale: Assigned to one broad UN M49 region under the project's working policy.
   Q3429952:
@@ -12249,13 +12249,13 @@ entities:
   Q3457186:
     label: Northern Cheyenne Indian Reservation
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 1
     rationale: 'Approved geographic classification: UN M49 broad region 019.'
   Q3457190:
     label: Six Nations of the Grand River 40
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 1
     rationale: 'Approved geographic classification: UN M49 broad region 019.'
   Q3462133:
@@ -12419,7 +12419,7 @@ entities:
   Q3813702:
     label: Rosebud Indian Reservation
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 1
     rationale: 'Approved geographic classification: UN M49 broad region 019.'
   Q3813824:
@@ -12456,7 +12456,7 @@ entities:
   Q3892131:
     label: Free Province of Guayaquil
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 1
     rationale: 'Approved geographic classification: UN M49 broad region 019.'
   Q3916279:
@@ -12468,7 +12468,7 @@ entities:
   Q3932042:
     label: Kingdom of Brazil
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 1
     rationale: 'Approved geographic classification: UN M49 broad region 019.'
   Q3932079:
@@ -12536,7 +12536,7 @@ entities:
   Q4148644:
     label: Greenland
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 1
     rationale: 'Approved geographic classification: UN M49 broad region 019.'
   Q4164217:
@@ -12760,7 +12760,7 @@ entities:
   Q5054056:
     label: Cattaraugus Reservation
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 1
     rationale: 'Approved geographic classification: UN M49 broad region 019.'
   Q5092177:
@@ -12784,7 +12784,7 @@ entities:
   Q5103726:
     label: Choctaw Nation of Oklahoma
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 7
     rationale: 'Batch 2 working classification accepted for the mapping: broad UN M49 region 019. Historical
       application is project-specific.'
@@ -12798,14 +12798,14 @@ entities:
   Q5148518:
     label: Colony of New Zealand
     status: approved_working_decision
-    region_code: 009
+    region_code: '009'
     p27_occurrences: 131
     rationale: 'User-approved Batch 1 working classification: UN M49 broad region 009. Application to
       historical entities is project-specific.'
   Q5148519:
     label: Colony of Tasmania
     status: approved_working_decision
-    region_code: 009
+    region_code: '009'
     p27_occurrences: 1
     rationale: 'Approved geographic classification: UN M49 broad region 009.'
   Q5177890:
@@ -12817,7 +12817,7 @@ entities:
   Q5291089:
     label: Dominion of Fiji
     status: approved_working_decision
-    region_code: 009
+    region_code: '009'
     p27_occurrences: 2
     rationale: Assigned to one broad UN M49 region under the project's working policy.
   Q5311389:
@@ -12904,7 +12904,7 @@ entities:
   Q5782830:
     label: Muisca Confederations
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 9
     rationale: 'Batch 2 working classification accepted for the mapping: broad UN M49 region 019. Historical
       application is project-specific.'
@@ -12917,7 +12917,7 @@ entities:
   Q5848651:
     label: United States of Venezuela
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 2
     rationale: Assigned to one broad UN M49 region under the project's working policy.
   Q5866720:
@@ -12972,7 +12972,7 @@ entities:
   Q6037274:
     label: Mosquitia
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 1
     rationale: 'Approved geographic classification: UN M49 broad region 019.'
   Q6042084:
@@ -13152,7 +13152,7 @@ entities:
   Q7443295:
     label: Second Federal Republic of Mexico
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 1
     rationale: Geographic entity located in the Americas.
   Q7500408:
@@ -13171,7 +13171,7 @@ entities:
   Q7646305:
     label: Surinam
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 3
     rationale: Working assignment to broad UN M49 region 019, following the project's one-region mapping
       policy.
@@ -13191,14 +13191,14 @@ entities:
   Q7849523:
     label: Tsenacommacah
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 3
     rationale: 'Approved primary classification under the UN M49 broad-region scheme: Americas (019).
       Optional subregion not reviewed in this batch.'
   Q7856408:
     label: Turtle Island
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 1
     rationale: Geographic entity located in the Americas.
   Q7856433:
@@ -13285,7 +13285,7 @@ entities:
   Q9063401:
     label: United Provinces of Central America
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 2
     rationale: Assigned to one broad UN M49 region under the project's working policy.
   Q9160295:
@@ -13344,7 +13344,7 @@ entities:
   Q10749897:
     label: Ancient Hawaii
     status: approved_working_decision
-    region_code: 009
+    region_code: '009'
     p27_occurrences: 4
     rationale: Working assignment to broad UN M49 region 009, following the project's one-region mapping
       policy.
@@ -13519,7 +13519,7 @@ entities:
   Q11680795:
     label: Culhuacán (altepetl)
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 1
     rationale: Assigned to one broad UN M49 region under the project's working policy.
   Q11680798:
@@ -13545,7 +13545,7 @@ entities:
   Q11705228:
     label: Wallmapu
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 1
     rationale: Wallmapu spans areas in present-day Chile and Argentina, both within the Americas broad
       region.
@@ -13571,7 +13571,7 @@ entities:
   Q11876909:
     label: State of Brazil
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 3
     rationale: 'Batch 9 approved: classified geographically in Americas under the UN M49 broad-region
       scheme.'
@@ -13697,7 +13697,7 @@ entities:
   Q13410267:
     label: British Solomon Islands
     status: approved_working_decision
-    region_code: 009
+    region_code: '009'
     p27_occurrences: 1
     rationale: Assigned to one broad UN M49 region under the project's working policy.
   Q13426199:
@@ -13801,7 +13801,7 @@ entities:
   Q14708404:
     label: Cherokee Nation
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 8
     rationale: 'Batch 2 working classification accepted for the mapping: broad UN M49 region 019. Historical
       application is project-specific.'
@@ -13821,7 +13821,7 @@ entities:
   Q14923076:
     label: Canada West
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 1
     rationale: Assigned to one broad UN M49 region under the project's working policy.
   Q15102440:
@@ -13905,7 +13905,7 @@ entities:
   Q16148484:
     label: Ho-Chunk Nation of Wisconsin
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 1
   Q16150196:
     label: Donetsk People's Republic
@@ -13986,7 +13986,7 @@ entities:
   Q16977320:
     label: Mushuau Innu First Nation
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 1
   Q17030701:
     label: Kingdom of Tlemcen
@@ -14041,12 +14041,12 @@ entities:
   Q17515160:
     label: Kingdom of Fiji
     status: approved_working_decision
-    region_code: 009
+    region_code: '009'
     p27_occurrences: 1
   Q17523945:
     label: Toltec Empire
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 1
     rationale: User-confirmed assignment to the Americas.
   Q17526620:
@@ -14102,7 +14102,7 @@ entities:
   Q18348382:
     label: Colony of New South Wales
     status: approved_working_decision
-    region_code: 009
+    region_code: '009'
     p27_occurrences: 6
     rationale: 'Batch 2 working classification accepted for the mapping: broad UN M49 region 009. Historical
       application is project-specific.'
@@ -14308,7 +14308,7 @@ entities:
   Q28401203:
     label: Colony of Queensland
     status: approved_working_decision
-    region_code: 009
+    region_code: '009'
     p27_occurrences: 2
     rationale: Assigned to one broad UN M49 region under the project's working policy.
   Q28846511:
@@ -14332,7 +14332,7 @@ entities:
   Q30258193:
     label: Mescalero Apache Tribe
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 1
   Q30747910:
     label: Islamic Republic of Afghanistan
@@ -14350,7 +14350,7 @@ entities:
   Q33123248:
     label: Blackfeet Nation
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 2
     rationale: Assigned to one broad UN M49 region under the project's working policy.
   Q36024972:
@@ -14436,7 +14436,7 @@ entities:
   Q56850459:
     label: Colony of Victoria
     status: approved_working_decision
-    region_code: 009
+    region_code: '009'
     p27_occurrences: 1
     rationale: 'Approved geographic classification: UN M49 broad region 009.'
   Q57583385:
@@ -14448,7 +14448,7 @@ entities:
   Q57676556:
     label: Colony of Western Australia
     status: approved_working_decision
-    region_code: 009
+    region_code: '009'
     p27_occurrences: 2
     rationale: Assigned to one broad UN M49 region under the project's working policy.
   Q57695350:
@@ -14540,7 +14540,7 @@ entities:
   Q95408244:
     label: Republic of Haiti (1820–1849)
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 1
     rationale: Geographic entity located in the Americas.
   Q97198482:
@@ -14558,7 +14558,7 @@ entities:
   Q99281400:
     label: United States of America
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 2
     rationale: Assigned to one broad UN M49 region under the project's working policy.
   Q99485081:
@@ -14728,7 +14728,7 @@ entities:
   Q116282722:
     label: Colony of Trinidad and Tobago
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 2
     rationale: Working broad-region assignment under UN M49 policy (019).
   Q116896904:
@@ -14834,7 +14834,7 @@ entities:
   Q133878465:
     label: Republic of Cuba in Arms
     status: approved_working_decision
-    region_code: 019
+    region_code: '019'
     p27_occurrences: 1
     rationale: Assigned to one broad UN M49 region under the project's working policy.
   Q135903264:

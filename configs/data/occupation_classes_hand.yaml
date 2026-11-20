@@ -1,0 +1,417 @@
+version: 1
+source: data/raw/wikidata_attributes/attributes_2026-10-25.tsv (P106), top 400 occupations labelled by
+  hand
+other_class: other
+rule_several_occupations: A person gets the class that the largest number of their distinct occupations
+  belong to. Ties are broken by the order of the classes below (earlier wins). Occupations not listed
+  here count as 'other'; a person gets 'other' only if none of their occupations is mapped.
+coverage: 96.0% of 1,440,740 humans with a P106 get a class other than 'other'
+classes:
+  natural_sciences:
+    Q169470: physicist
+    Q170790: mathematician
+    Q2374149: botanist
+    Q593644: chemist
+    Q82594: computer scientist
+    Q901: scientist
+    Q11063: astronomer
+    Q350979: zoologist
+    Q864503: biologist
+    Q520549: geologist
+    Q2083925: botanical collector
+    Q18805: naturalist
+    Q98544732: scientific collector
+    Q3055126: entomologist
+    Q2919046: biochemist
+    Q1225716: ornithologist
+    Q2732142: statistician
+    Q1662561: paleontologist
+    Q3126128: geneticist
+    Q6337803: neuroscientist
+    Q2055046: physiologist
+    Q15839134: ecologist
+    Q752129: astrophysicist
+    Q16742096: nuclear physicist
+    Q2310145: meteorologist
+    Q2487799: mycologist
+    Q3779582: microbiologist
+    Q1781198: agronomist
+    Q1650915: researcher
+    Q11631: astronaut
+    Q1734662: cartographer
+  medicine:
+    Q39631: physician
+    Q774306: surgeon
+    Q211346: psychiatrist
+    Q186360: nurse
+    Q105186: pharmacist
+    Q783906: neurologist
+    Q3368718: pathologist
+    Q27349: dentist
+    Q2640827: gynecologist
+    Q12013238: ophthalmologist
+    Q10872101: anatomist
+    Q4002666: military physician
+  engineering_technology:
+    Q81096: engineer
+    Q205375: inventor
+    Q13582652: civil engineer
+    Q1326886: electrical engineer
+    Q5482740: programmer
+    Q128124: audio engineer
+  humanities_social_sciences:
+    Q201788: historian
+    Q4964182: philosopher
+    Q188094: economist
+    Q14467526: linguist
+    Q4773904: anthropologist
+    Q212980: psychologist
+    Q2306091: sociologist
+    Q1238570: political scientist
+    Q1792450: art historian
+    Q14915627: musicologist
+    Q13418253: philologist
+    Q3621491: archaeologist
+    Q901402: geographer
+    Q1731155: orientalist
+    Q13570226: literary historian
+    Q16267607: classical philologist
+    Q1371378: ethnologist
+    Q17167049: literary scholar
+    Q2468727: classical scholar
+    Q14972848: lexicographer
+    Q20826540: scholar
+    Q16308156: scholar of English
+    Q16012028: legal scholar
+    Q182436: librarian
+  literature:
+    Q36180: writer
+    Q49757: poet
+    Q6625963: novelist
+    Q214917: playwright
+    Q482980: author
+    Q4853732: children's writer
+    Q333634: translator
+    Q18844224: science fiction writer
+    Q11774202: essayist
+    Q864380: biographer
+    Q15980158: non-fiction writer
+    Q18814623: autobiographer
+    Q12144794: prose writer
+    Q15949613: short story writer
+    Q11892507: comics writer
+    Q8178443: librettist
+    Q13424456: hymnwriter
+    Q18939491: diarist
+    Q4263842: literary critic
+  music:
+    Q177220: singer
+    Q36834: composer
+    Q639669: musician
+    Q753110: songwriter
+    Q486748: pianist
+    Q488205: singer-songwriter
+    Q855091: guitarist
+    Q15981151: jazz musician
+    Q158852: conductor
+    Q2865819: opera singer
+    Q183945: record producer
+    Q2252262: rapper
+    Q55960555: recording artist
+    Q1643514: music arranger
+    Q806349: bandleader
+    Q1415090: film score composer
+    Q12800682: saxophonist
+    Q1259917: violinist
+    Q386854: drummer
+    Q765778: organist
+    Q6168364: jazz guitarist
+    Q1076502: choir director
+    Q4351403: percussionist
+    Q12377274: trumpeter
+    Q13219637: cellist
+    Q822146: lyricist
+    Q1198887: music director
+    Q1955150: musical instrument maker
+  film_tv_performing:
+    Q33999: actor
+    Q10800557: film actor
+    Q10798782: television actor
+    Q28389: screenwriter
+    Q2526255: film director
+    Q2259451: stage actor
+    Q3282637: film producer
+    Q3455803: director
+    Q578109: television producer
+    Q2405480: voice actor
+    Q245068: comedian
+    Q5716684: dancer
+    Q3387717: theatre director
+    Q2059704: television director
+    Q222344: cinematographer
+    Q7042855: film editor
+    Q2490358: choreographer
+    Q622807: seiyū
+    Q1414443: filmmaker
+    Q47541952: producer
+    Q805221: ballet dancer
+    Q487596: dramaturge
+    Q488111: pornographic film actor
+    Q1776724: theatre manager
+    Q11481802: dub actor
+    Q1323191: costume designer
+    Q2707485: scenographer
+    Q2962070: production designer
+    Q713200: performing artist
+    Q465501: stunt performer
+    Q970153: child actor
+    Q15855449: magician
+    Q1053574: executive producer
+    Q69423232: film screenwriter
+    Q266569: animator
+    Q10774753: performance artist
+    Q2705098: tarento
+    Q4610556: model
+    Q3357567: fashion model
+    Q18581305: beauty pageant contestant
+  visual_arts_design:
+    Q1028181: painter
+    Q483501: artist
+    Q1281618: sculptor
+    Q644687: illustrator
+    Q15296811: draftsperson
+    Q3391743: visual artist
+    Q5322166: designer
+    Q715301: comics artist
+    Q1925963: graphic artist
+    Q11569986: printmaker
+    Q33231: photographer
+    Q42973: architect
+    Q627325: graphic designer
+    Q3501317: fashion designer
+    Q18074503: installation artist
+    Q18216771: video artist
+    Q16947657: lithographer
+    Q329439: engraver
+    Q10862983: etcher
+    Q7541856: ceramicist
+    Q3658608: caricaturist
+    Q674426: curator
+    Q780596: exhibition curator
+    Q1114448: cartoonist
+    Q10732476: art collector
+    Q173950: art dealer
+    Q15472169: patron of the arts
+    Q10373653: watercolorist
+    Q13365770: copper engraver
+    Q3303330: calligrapher
+    Q2815948: landscape architect
+    Q191633: mangaka
+  sports:
+    Q937857: association football player
+    Q628099: association football coach
+    Q19204627: American football player
+    Q12299841: cricketer
+    Q10871364: baseball player
+    Q11513337: athletics competitor
+    Q3665646: basketball player
+    Q11774891: ice hockey player
+    Q2309784: sport cyclist
+    Q13414980: Australian rules football player
+    Q14089670: rugby union player
+    Q10843402: swimmer
+    Q11338576: boxer
+    Q14373094: rugby league player
+    Q2066131: athlete
+    Q10833314: tennis player
+    Q5137571: basketball coach
+    Q13382576: rower
+    Q15117302: volleyball player
+    Q12840545: handball player
+    Q4009406: sprinter
+    Q13382566: canoeist
+    Q13381863: fencer
+    Q12369333: amateur wrestler
+    Q10349745: racing automobile driver
+    Q17486376: sport shooter
+    Q19841381: Canadian football player
+    Q11303721: golfer
+    Q13219587: figure skater
+    Q10873124: chess player
+    Q13474373: professional wrestler
+    Q10843263: field hockey player
+    Q6665249: judoka
+    Q378622: racing driver
+    Q13141064: badminton player
+    Q4144610: alpine skier
+    Q13381572: artistic gymnast
+    Q3246315: head coach
+    Q42331263: American football coach
+    Q11607585: mixed martial arts fighter
+    Q41583: coach
+    Q18199024: hurler
+    Q13382608: cross-country skier
+    Q3014296: motorcycle racer
+    Q17524364: water polo player
+    Q17351861: Gaelic football player
+    Q4439155: long-distance runner
+    Q13382460: marathon runner
+    Q859528: association football referee
+    Q5137576: ice hockey coach
+    Q13383011: bobsledder
+    Q10866633: speed skater
+    Q13382603: ski jumper
+    Q9149093: mountaineer
+    Q18515558: futsal player
+    Q17516936: curler
+    Q13381753: middle-distance runner
+    Q16029547: biathlete
+    Q13382519: table tennis player
+    Q17361147: ice dancer
+    Q17361156: beach volleyball player
+    Q11296761: kickboxer
+    Q10841764: Formula One driver
+    Q2143894: cricket umpire
+    Q16004431: competitive diver
+    Q846750: jockey
+    Q13382533: taekwondo athlete
+    Q13382355: archer
+    Q15972912: modern pentathlete
+    Q15306067: triathlete
+    Q18574233: darts player
+    Q16278103: squash player
+    Q24037210: rhythmic gymnast
+    Q13382981: luger
+    Q15117395: track cyclist
+    Q16004471: kayaker
+    Q18617021: freestyle skier
+    Q2730732: equestrian
+    Q9017214: karateka
+    Q13381376: weightlifter
+    Q58825429: Olympic competitor
+    Q15295720: poker player
+    Q466640: horse trainer
+    Q26481809: sports executive
+  journalism_media:
+    Q1930187: journalist
+    Q6051619: opinion journalist
+    Q1607826: editor
+    Q2516866: publisher
+    Q947873: television presenter
+    Q2722764: radio personality
+    Q130857: disc jockey
+    Q1086863: columnist
+    Q8246794: blogger
+    Q13590141: presenter
+    Q876864: editing staff
+    Q2986228: sports commentator
+    Q270389: news presenter
+    Q17351648: newspaper editor
+    Q957729: photojournalist
+    Q11313148: sports journalist
+    Q15077007: podcaster
+    Q17125263: YouTuber
+    Q4220892: film critic
+    Q1350157: music critic
+    Q4164507: art critic
+    Q6430706: critic
+  law:
+    Q40348: lawyer
+    Q16533: judge
+    Q185351: jurist
+    Q808967: barrister
+    Q329455: justice of the peace
+  religion:
+    Q250867: Catholic priest
+    Q611644: Catholic bishop
+    Q1234713: theologian
+    Q3409375: Anglican priest
+    Q219477: missionary
+    Q42603: priest
+    Q133485: rabbi
+    Q29182: bishop
+    Q1423891: Christian minister
+    Q98833890: Catholic theologian
+    Q2259532: cleric
+    Q733786: monk
+    Q831474: presbyter
+    Q191808: nun
+    Q955464: parson
+    Q152002: pastor
+    Q49476: archbishop
+    Q432386: preacher
+    Q19340487: Eastern Orthodox priest
+    Q25393460: Catholic deacon
+    Q98833883: Protestant theologian
+  military_security:
+    Q47064: military personnel
+    Q189290: military officer
+    Q4991371: soldier
+    Q1402561: military leader
+    Q10669499: naval officer
+    Q384593: police officer
+    Q9352089: spy
+    Q1397808: resistance fighter
+    Q222982: flying ace
+    Q38142: samurai
+    Q10497074: military flight engineer
+  business:
+    Q43845: businessperson
+    Q131524: entrepreneur
+    Q806798: banker
+    Q2961975: business executive
+    Q215536: merchant
+    Q2462658: manager
+    Q13235160: manufacturer
+    Q484876: chief executive officer
+    Q1979607: financier
+    Q6606110: industrialist
+    Q326653: accountant
+    Q3427922: restaurateur
+    Q998550: bookseller
+  activism_civil_society:
+    Q15627169: trade unionist
+    Q15253558: activist
+    Q1476215: human rights defender
+    Q3578589: environmentalist
+    Q28692502: women's rights activist
+    Q3242115: revolutionary
+    Q7019111: social worker
+    Q11499147: political activist
+    Q27532437: suffragist
+    Q322170: suffragette
+    Q34074720: feminist
+    Q19509201: LGBTQ rights activist
+    Q16323111: peace activist
+    Q12362622: philanthropist
+  nobility_royalty:
+    Q2478141: aristocrat
+    Q116: monarch
+    Q2304859: sovereign
+    Q1097498: ruler
+    Q1409420: feudatory
+    Q512314: socialite
+  politics_government:
+    Q82955: politician
+    Q193391: diplomat
+    Q212238: civil servant
+    Q83307: minister
+    Q132050: governor
+    Q372436: statesperson
+    Q599151: official
+    Q30185: mayor
+    Q486839: member of parliament
+    Q121998: ambassador
+  education:
+    Q1622272: university teacher
+    Q37226: teacher
+    Q16145150: music educator
+    Q1231865: pedagogue
+    Q121594: professor
+    Q974144: educator
+    Q462390: docent
+    Q2675537: music teacher
+    Q1569495: lecturer
+    Q1056391: head teacher
+    Q21281706: academic administrator
+    Q3400985: academic
