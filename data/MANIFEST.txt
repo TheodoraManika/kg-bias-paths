@@ -8,3 +8,4 @@ data/raw/wikidata5m/wikidata5m_transductive_test.txt	extracted from wikidata5m_t
 data/raw/wikidata5m/wikidata5m_entity.txt	extracted from wikidata5m_alias.tar.gz	2026-10-25	551790340	e71a0bf6344742abcbe2e398e38874008fee048f513f0e6108c12f859fa52c67
 data/raw/wikidata5m/wikidata5m_relation.txt	extracted from wikidata5m_alias.tar.gz	2026-10-25	56415	dfe6e647a9a57a1e58ea1f9dfd73b3a91d3fdb43bf44599d8c586aa2ae0a79be
 data/processed/graph_v1_train_nosens_inv.pt	built by scripts/02c_build_graph.py from edges_train_v1.npy	2026-11-19	971019907	217fd28ec85dca5aede5fc35895ea06825a0d2016f2df662198bde33151a62f8
+data/processed/graph_v1_train_nosens_inv_decade.pt	built by scripts/02c_build_graph.py from edges_train_v1.npy --decade	2026-11-25	1043483266	f25716a63205d52a43847d5b60107c14e8f2daf229c6cae776cbedab4248b88f

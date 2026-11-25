@@ -1,5 +1,5 @@
 {
-  "git_commit": "1d3d110417c8a8ab5e414986b13227ff07d392d5",
+  "git_commit": "0a0927e31af0a75d051357f60db94d256e77e0b3",
   "args": {
     "w5m": "data/raw/wikidata5m",
     "attrs": "data/raw/wikidata_attributes/attributes_2026-10-25.tsv",
@@ -11,5 +11,5 @@
   },
   "humans": 1509635,
   "attrs_missing": 10469,
-  "seconds": 34.0
+  "seconds": 39.1
 }

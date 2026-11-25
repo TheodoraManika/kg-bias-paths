@@ -21,11 +21,19 @@ VERSION = "v1"
 # nosens: the sensitive relations are removed
 # inv: every edge also has an inverse edge, with relation ID + num_relations
 SETTINGS = "train_nosens_inv"
+# Variant: the same graph plus a "born in decade" edge from every person to a decade node.
+DECADE_SETTINGS = "train_nosens_inv_decade"
+EARLY_UNTIL = 1500  # born before this year: one node
+COARSE_UNTIL = 1800  # EARLY_UNTIL up to here: COARSE_WIDTH-year buckets; from here: decades
+COARSE_WIDTH = 50
+LAST_DECADE = 2020  # the last decade node; later years are counted in it
 SENSITIVE_RELATIONS = ("P21", "P27")  # sex or gender, country of citizenship
 
 
-def graph_path(version: str = VERSION, directory: Path = PROCESSED_DIR) -> Path:
-    return directory / f"graph_{version}_{SETTINGS}.pt"
+def graph_path(
+    version: str = VERSION, directory: Path = PROCESSED_DIR, settings: str = SETTINGS
+) -> Path:
+    return directory / f"graph_{version}_{settings}.pt"
 
 
 def build_graph(
@@ -75,13 +83,106 @@ def build_graph(
     }
 
 
+def birth_bucket_labels() -> list[str]:
+    """Names of the birth buckets, in node order (the "unknown" node comes after the last one).
+
+    Wikidata has people born thousands of years ago, so a node per decade would give hundreds of
+    nodes with only a few people. The buckets are: everything before EARLY_UNTIL in one node,
+    COARSE_WIDTH-year buckets up to COARSE_UNTIL, and one decade per node from there on.
+    """
+    labels = [f"before_{EARLY_UNTIL}"]
+    labels += [
+        f"{y}-{y + COARSE_WIDTH - 1}" for y in range(EARLY_UNTIL, COARSE_UNTIL, COARSE_WIDTH)
+    ]
+    labels += [f"{y}s" for y in range(COARSE_UNTIL, LAST_DECADE + 10, 10)]
+    return labels
+
+
+def birth_bucket_index(birth_decades: np.ndarray) -> np.ndarray:
+    """Bucket number (an index into birth_bucket_labels()) per person; NaN -> the unknown bucket."""
+    birth = np.asarray(birth_decades, dtype=np.float64)
+    missing = np.isnan(birth)
+    year = np.minimum(
+        np.where(missing, EARLY_UNTIL, birth), LAST_DECADE
+    )  # years after the last decade share it
+    num_coarse = (COARSE_UNTIL - EARLY_UNTIL) // COARSE_WIDTH
+    index = np.where(
+        year < EARLY_UNTIL,
+        0,
+        np.where(
+            year < COARSE_UNTIL,
+            1 + (year - EARLY_UNTIL) // COARSE_WIDTH,
+            1 + num_coarse + (year - COARSE_UNTIL) // 10,
+        ),
+    ).astype(np.int64)
+    return np.where(missing, len(birth_bucket_labels()), index)
+
+
+def decade_edges(
+    person_node_ids: np.ndarray, birth_decades: np.ndarray, num_nodes: int, relation_id: int
+) -> tuple[np.ndarray, list[str]]:
+    """One (person, relation_id, bucket node) row per person.
+
+    The bucket nodes get the IDs num_nodes, num_nodes + 1, ... in the order of
+    birth_bucket_labels(). A person without a birth decade (NaN) points to one extra "unknown"
+    node after the last bucket, so that having no date is explicit and not the same as having no
+    edge. Returns the rows [N, 3] and the bucket labels.
+    """
+    person_node_ids = np.asarray(person_node_ids, dtype=np.int64)
+    index = birth_bucket_index(birth_decades)
+    rows = np.stack(
+        [person_node_ids, np.full(len(index), relation_id, dtype=np.int64), num_nodes + index],
+        axis=1,
+    )
+    return rows, birth_bucket_labels()
+
+
+def build_graph_with_decades(
+    edges: np.ndarray,
+    num_nodes: int,
+    num_relations: int,
+    person_node_ids: np.ndarray,
+    birth_decades: np.ndarray,
+    drop_relation_ids: tuple[int, ...] = (),
+) -> dict:
+    """The graph of `build_graph` plus a "born in bucket" edge for every person.
+
+    This is the variant (settings DECADE_SETTINGS, saved as its own file). Compared with the main
+    graph it has:
+      - len(birth_bucket_labels()) + 1 extra nodes (the buckets and one "unknown"), IDs from
+        `num_nodes` on;
+      - one extra relation, born_in_decade, with ID `num_relations`, so num_relations grows by 1
+        and the inverse relations are shifted by one: relation + (num_relations + 1);
+      - one extra edge (and its inverse) for every person in `person_node_ids`.
+    `person_node_ids` and `birth_decades` are parallel arrays (node ID, decade as 1860.0 or NaN).
+    The decade edges are not prediction targets, so they leak nothing from valid/test.
+    """
+    rows, labels = decade_edges(person_node_ids, birth_decades, num_nodes, num_relations)
+    all_edges = np.concatenate([np.asarray(edges, dtype=np.int64), rows])
+    graph = build_graph(
+        all_edges, num_nodes + len(labels) + 1, num_relations + 1, drop_relation_ids
+    )
+    graph["settings"].update(
+        {
+            "birth_decade_edges": len(rows),
+            "born_in_decade_relation_id": num_relations,
+            "decade_node_start": num_nodes,
+            "decade_buckets": labels,
+            "unknown_decade_node": num_nodes + len(labels),
+        }
+    )
+    return graph
+
+
 def save_graph(graph: dict, path: Path) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     torch.save(graph, path)
 
 
-def load_graph(version: str = VERSION, directory: Path = PROCESSED_DIR) -> dict:
-    return torch.load(graph_path(version, directory), weights_only=True)
+def load_graph(
+    version: str = VERSION, directory: Path = PROCESSED_DIR, settings: str = SETTINGS
+) -> dict:
+    return torch.load(graph_path(version, directory, settings), weights_only=True)
 
 
 def file_sha256(path: Path) -> str:

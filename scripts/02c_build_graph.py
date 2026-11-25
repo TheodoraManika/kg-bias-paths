@@ -5,55 +5,84 @@ relations, adds inverse edges, sorts by source node and saves with torch.save. T
 the file and starting a NeighborLoader.
 
 Run from the repository root with:  PYTHONPATH=src uv run python scripts/02c_build_graph.py
+The variant with birth-decade nodes (needs people_v2.parquet):  ... 02c_build_graph.py --decade
 """
 
+import argparse
 import json
 import time
 
 import numpy as np
+import pandas as pd
 import torch
 from torch_geometric.data import Data
 from torch_geometric.loader import NeighborLoader
 
 from fairkg.data.graph import (
+    DECADE_SETTINGS,
     PROCESSED_DIR,
     SENSITIVE_RELATIONS,
+    SETTINGS,
     VERSION,
     build_graph,
+    build_graph_with_decades,
     file_sha256,
     graph_path,
     load_graph,
     save_graph,
 )
 
+DECADE_DEFAULT = False  # True: the plain run builds the graph with birth-decade nodes
+PEOPLE_FILE = "people_v2.parquet"  # needs: make people
 NUM_NEIGHBORS = [10, 10]  # two layers, as the planned R-GCN
 BATCH_SIZE = 1024
 
 
-def main() -> None:
+def main(decade: bool) -> None:
+    settings = DECADE_SETTINGS if decade else SETTINGS
     with open(PROCESSED_DIR / f"relation2id_{VERSION}.json", encoding="utf-8") as f:
         relation2id = json.load(f)
     with open(PROCESSED_DIR / f"entity2id_{VERSION}.json", encoding="utf-8") as f:
-        num_nodes = len(json.load(f))
+        entity2id = json.load(f)
+    num_nodes = len(entity2id)
     edges = np.load(PROCESSED_DIR / f"edges_train_{VERSION}.npy", mmap_mode="r")
     drop = tuple(relation2id[name] for name in SENSITIVE_RELATIONS)
     print(f"train edges: {len(edges):,}; dropping relations {dict(zip(SENSITIVE_RELATIONS, drop))}")
 
     start = time.perf_counter()
-    graph = build_graph(edges, num_nodes, len(relation2id), drop)
+    if decade:
+        # The variant: also a "born in decade" edge from every person to a birth-bucket node.
+        # To make this the default for a plain run, set DECADE_DEFAULT = True below (the file name
+        # keeps _decade, so the two graphs are never mixed up).
+        people = pd.read_parquet(PROCESSED_DIR / PEOPLE_FILE, columns=["id", "birth_decade"])
+        people = people[people["id"].isin(entity2id)]  # every human should be in the graph
+        graph = build_graph_with_decades(
+            edges,
+            num_nodes,
+            len(relation2id),
+            people["id"].map(entity2id).to_numpy(),
+            people["birth_decade"].to_numpy(),  # NaN -> the "unknown" node
+            drop,
+        )
+        info = graph["settings"]
+        print(
+            f"  decade edges: {info['birth_decade_edges']:,}; buckets: {len(info['decade_buckets'])} + unknown"
+        )
+    else:
+        graph = build_graph(edges, num_nodes, len(relation2id), drop)
     print(f"built in {time.perf_counter() - start:.1f} s")
     print(f"  edges removed (sensitive): {graph['settings']['edges_removed']:,}")
     print(f"  edges in graph (with inverses): {graph['edge_index'].shape[1]:,}")
     assert bool((graph["edge_index"][0][1:] >= graph["edge_index"][0][:-1]).all()), "not sorted"
 
-    path = graph_path()
+    path = graph_path(settings=settings)
     save_graph(graph, path)
     size_mb = path.stat().st_size / 1e6
     print(f"saved {path.relative_to(PROCESSED_DIR.parents[1])} ({size_mb:,.0f} MB)")
 
     # What a training run does: load the file and start a NeighborLoader.
     start = time.perf_counter()
-    loaded = load_graph()
+    loaded = load_graph(settings=settings)
     load_seconds = time.perf_counter() - start
     data = Data(
         edge_index=loaded["edge_index"],
@@ -76,10 +105,17 @@ def main() -> None:
     print("\nmanifest line:")
     print(
         f"{path.relative_to(PROCESSED_DIR.parents[1])}\tbuilt by scripts/02c_build_graph.py "
-        f"from edges_train_{VERSION}.npy\t{time.strftime('%Y-%m-%d')}\t{path.stat().st_size}\t"
+        f"from edges_train_{VERSION}.npy{' --decade' if decade else ''}\t{time.strftime('%Y-%m-%d')}\t{path.stat().st_size}\t"
         f"{file_sha256(path)}"
     )
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(description=__doc__.split("\n")[0])
+    parser.add_argument(
+        "--decade",
+        action=argparse.BooleanOptionalAction,
+        default=DECADE_DEFAULT,
+        help="add a birth-bucket node and a born_in_decade edge per person (saved as its own file)",
+    )
+    main(parser.parse_args().decade)
