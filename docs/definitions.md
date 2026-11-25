@@ -112,8 +112,6 @@ For the primary analysis, use a conservative, mutually exclusive assignment rule
 
 This rule is deliberately conservative. Report the number of people included in each primary group, excluded due to multiple values, and missing or carrying other values.
 
-**ADELLE NOTE: do we want to be conservative with this approach? i have complicated opinions about treating this as sex versus gender. because they are different circumstances, i suppose it is needed. i am open to merging trans women and trans men with the main groups though, but keeping a separate identifier to signal this distinction.**
-
 ### 3.3 Multi-label Sensitivity Analysis
 
 As a sensitivity analysis, a person may belong to every group explicitly supported by their recorded values. In this analysis, groups can overlap; group counts therefore do not necessarily sum to the total population.
@@ -462,9 +460,9 @@ The audited decision distribution is:
 
 | Review status | Count |
 |---|---:|
-| `approved_working_decision` | 2,105 |
+| `approved_working_decision` | 2,108 |
 | `not_applicable_by_policy` | 178 |
-| `unmapped_by_policy` | 40 |
+| `unmapped_by_policy` | 37 |
 | **Total** | **2,323** |
 
 The approved broad-region assignments are:
@@ -473,10 +471,10 @@ The approved broad-region assignments are:
 |---|---:|---:|
 | Africa | `002` | 243 |
 | Americas | `019` | 162 |
-| Asia | `142` | 753 |
-| Europe | `150` | 903 |
+| Asia | `142` | 754 |
+| Europe | `150` | 905 |
 | Oceania | `009` | 44 |
-| **Total approved** | | **2,106** |
+| **Total approved** | | **2,108** |
 
 The mapping was independently audited against the source TSV. The audit confirmed complete coverage of the 2,323 distinct citizenship-value QIDs, no extra mapping QIDs, no P27 occurrence-count mismatches, valid statuses and region codes, and agreement between the stored and recalculated decision and region summaries.
 
@@ -500,7 +498,3 @@ For every regional analysis, document the classification reference and source sn
 - Wikidata Property `P21`, including documented values and usage guidance: https://www.wikidata.org/wiki/Property:P21
 - Male (Q6581097): https://www.wikidata.org/wiki/Q6581097
 - Female (Q6581072): https://www.wikidata.org/wiki/Q6581072
-- Non-binary (Q48270): https://www.wikidata.org/wiki/Q48270
-- Trans woman (Q1052281): https://www.wikidata.org/wiki/Q1052281
-- Trans man (Q2449503): https://www.wikidata.org/wiki/Q2449503
-- Intersex (Q1097630): https://www.wikidata.org/wiki/Q1097630

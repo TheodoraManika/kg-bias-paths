@@ -1,0 +1,14 @@
+{
+  "git_commit": "276df2c82af99706dd07542043a8822b0105d6e7",
+  "args": {
+    "w5m": "data/raw/wikidata5m",
+    "people": "data/processed/people_v2.parquet",
+    "out": "data/processed/covariates_v1.parquet",
+    "audit_dir": "docs/data_audit",
+    "skip_expected_check": false
+  },
+  "triples": 20624575,
+  "sensitive_excluded": 1151085,
+  "humans": 1509635,
+  "seconds": 71.6
+}

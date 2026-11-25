@@ -1,0 +1,40 @@
+{
+  "thresholds": {
+    "TEST_FRACTION": 0.1,
+    "MIN_TEST_QUERIES": 200,
+    "SAFETY_FACTOR": 2,
+    "MIN_REGIONS": 2,
+    "MIN_AWARDS_WITH_5": 200,
+    "MAX_TOP1_SHARE": 0.3,
+    "MAX_TOP10_SHARE": 0.7
+  },
+  "award_stats": {
+    "p166_triples_total": 170178,
+    "p166_holders_total": 98433,
+    "distinct_awards": 6427,
+    "awards_with_5plus_holders": 2711,
+    "awards_with_10plus_holders": 1920,
+    "top1_share": 0.0387,
+    "top10_share": 0.17,
+    "p166_triples_male": 142908,
+    "p166_triples_female": 26986
+  },
+  "decision": {
+    "P166": {
+      "cond1_women_triples": 26986,
+      "cond1_pass": true,
+      "cond2_regions_ok": 2,
+      "cond2_pass": true,
+      "cond3_pass": true,
+      "cond4_pass": true,
+      "cond5_award_coverage": 0.0652
+    },
+    "P106": {
+      "cond1_women_triples": 174632,
+      "cond1_pass": true,
+      "cond2_regions_ok": 5,
+      "cond2_pass": true
+    },
+    "recommendation": "KEEP P166 as primary task."
+  }
+}

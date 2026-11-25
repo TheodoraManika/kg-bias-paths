@@ -1,0 +1,11 @@
+measure,humans,share_of_humans
+humans (P31=Q5 in graph),1509635,1.0
+attrs_missing (no 2026 attributes),10469,0.0069
+P21 gender (attributes),1498150,0.9924
+P27 citizenship (attributes),1306120,0.8652
+P106 occupation (graph),807575,0.5349
+P166 award (graph),98433,0.0652
+"binary-gender humans, attributes present",1496712,0.9914
+has birth decade,1365459,0.9045
+"P106 occupation (attributes, 2026)",1440740,0.9544
+occupation_class other than other/no_occupation,1410664,0.9344
