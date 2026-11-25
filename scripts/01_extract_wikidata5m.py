@@ -7,27 +7,16 @@ import json
 import resource
 import sys
 import time
-from pathlib import Path
 
 import numpy as np
 from pykeen.triples import TriplesFactory
 
+from fairkg.constants import PROCESSED_DIR, RAW_W5M_FILES, ROOT
 from fairkg.data.wikidata5m import (
-    PROCESSED_DIR,
     edges_path,
     entity_map_path,
     relation_map_path,
 )
-
-ROOT = Path(__file__).resolve().parents[1]
-RAW_DIR = ROOT / "data" / "raw" / "wikidata5m"
-
-# One file per official split, so train/valid/test stay separable.
-RAW_FILES = {
-    "train": RAW_DIR / "wikidata5m_transductive_train.txt",
-    "valid": RAW_DIR / "wikidata5m_transductive_valid.txt",
-    "test": RAW_DIR / "wikidata5m_transductive_test.txt",
-}
 
 
 def peak_ram_mb() -> float:
@@ -41,7 +30,7 @@ def main() -> None:
     start = time.perf_counter()
     splits = {
         name: np.loadtxt(path, dtype=str, delimiter="\t", comments=None, encoding="utf-8")
-        for name, path in RAW_FILES.items()
+        for name, path in RAW_W5M_FILES.items()
     }
 
     # IDs come from all three files together, so they are valid for every split.

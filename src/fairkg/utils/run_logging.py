@@ -10,11 +10,11 @@ import subprocess
 
 import yaml
 
+from fairkg.constants import LOG_FILE, ROOT, RUNS_DIR
 from fairkg.utils.config import to_plain
 from fairkg.utils.seed import seed_everything
 
 # run_logging.py -> utils -> fairkg -> src -> repo root
-ROOT = pathlib.Path(__file__).resolve().parents[3]
 
 START_LIST = [
     "run_id",  # number of the run, starting from 0
@@ -44,9 +44,7 @@ VALID_STATUSES = ("success", "failure", "timeout")
 
 CSV_HEADER = START_LIST + END_LIST
 
-LOG_FILE = ROOT / "runs" / "logs" / "experiment_log.csv"
 
-RUNS_DIR = ROOT / "runs"
 
 
 def get_git_commit() -> str:

@@ -10,12 +10,7 @@ from pathlib import Path
 
 import numpy as np
 
-# wikidata5m.py -> data -> fairkg -> src -> repo root
-ROOT = Path(__file__).resolve().parents[3]
-PROCESSED_DIR = ROOT / "data" / "processed"
-
-VERSION = "v1"
-SPLITS = ("train", "valid", "test")
+from fairkg.constants import PROCESSED_DIR, SPLITS, VERSION
 
 
 def edges_path(split: str, version: str = VERSION, directory: Path = PROCESSED_DIR) -> Path:

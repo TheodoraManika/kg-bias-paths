@@ -18,12 +18,18 @@ import torch
 from torch_geometric.data import Data
 from torch_geometric.loader import NeighborLoader
 
-from fairkg.data.graph import (
-    DECADE_SETTINGS,
+from fairkg.constants import (
+    GRAPH_DECADE_DEFAULT,
+    GRAPH_DECADE_SETTINGS,
+    GRAPH_SETTINGS,
+    LOADER_BATCH_SIZE,
+    NUM_NEIGHBORS,
+    PEOPLE_FILE,
     PROCESSED_DIR,
     SENSITIVE_RELATIONS,
-    SETTINGS,
     VERSION,
+)
+from fairkg.data.graph import (
     build_graph,
     build_graph_with_decades,
     file_sha256,
@@ -32,14 +38,9 @@ from fairkg.data.graph import (
     save_graph,
 )
 
-DECADE_DEFAULT = False  # True: the plain run builds the graph with birth-decade nodes
-PEOPLE_FILE = "people_v2.parquet"  # needs: make people
-NUM_NEIGHBORS = [10, 10]  # two layers, as the planned R-GCN
-BATCH_SIZE = 1024
-
 
 def main(decade: bool) -> None:
-    settings = DECADE_SETTINGS if decade else SETTINGS
+    settings = GRAPH_DECADE_SETTINGS if decade else GRAPH_SETTINGS
     with open(PROCESSED_DIR / f"relation2id_{VERSION}.json", encoding="utf-8") as f:
         relation2id = json.load(f)
     with open(PROCESSED_DIR / f"entity2id_{VERSION}.json", encoding="utf-8") as f:
@@ -52,8 +53,8 @@ def main(decade: bool) -> None:
     start = time.perf_counter()
     if decade:
         # The variant: also a "born in decade" edge from every person to a birth-bucket node.
-        # To make this the default for a plain run, set DECADE_DEFAULT = True below (the file name
-        # keeps _decade, so the two graphs are never mixed up).
+        # To make this the default for a plain run, set GRAPH_DECADE_DEFAULT = True in
+        # src/fairkg/constants.py (the file name keeps _decade, so the graphs are never mixed up).
         people = pd.read_parquet(PROCESSED_DIR / PEOPLE_FILE, columns=["id", "birth_decade"])
         people = people[people["id"].isin(entity2id)]  # every human should be in the graph
         graph = build_graph_with_decades(
@@ -90,9 +91,9 @@ def main(decade: bool) -> None:
         num_nodes=loaded["num_nodes"],
     )
     generator = torch.Generator().manual_seed(0)
-    seeds = torch.randint(0, num_nodes, (BATCH_SIZE,), generator=generator)
+    seeds = torch.randint(0, num_nodes, (LOADER_BATCH_SIZE,), generator=generator)
     loader = NeighborLoader(
-        data, num_neighbors=NUM_NEIGHBORS, batch_size=BATCH_SIZE, input_nodes=seeds
+        data, num_neighbors=NUM_NEIGHBORS, batch_size=LOADER_BATCH_SIZE, input_nodes=seeds
     )
     batch = next(iter(loader))
     total_seconds = time.perf_counter() - start
@@ -115,7 +116,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--decade",
         action=argparse.BooleanOptionalAction,
-        default=DECADE_DEFAULT,
+        default=GRAPH_DECADE_DEFAULT,
         help="add a birth-bucket node and a born_in_decade edge per person (saved as its own file)",
     )
     main(parser.parse_args().decade)

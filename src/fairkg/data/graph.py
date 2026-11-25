@@ -11,27 +11,19 @@ from pathlib import Path
 import numpy as np
 import torch
 
-# graph.py -> data -> fairkg -> src -> repo root
-ROOT = Path(__file__).resolve().parents[3]
-PROCESSED_DIR = ROOT / "data" / "processed"
-
-# Version of the edge arrays and ID maps (data/processed/edges_*_<version>.npy) the graph is built from.
-VERSION = "v1"
-# train: only train edges (no valid/test edges, so evaluation cannot leak)
-# nosens: the sensitive relations are removed
-# inv: every edge also has an inverse edge, with relation ID + num_relations
-SETTINGS = "train_nosens_inv"
-# Variant: the same graph plus a "born in decade" edge from every person to a decade node.
-DECADE_SETTINGS = "train_nosens_inv_decade"
-EARLY_UNTIL = 1500  # born before this year: one node
-COARSE_UNTIL = 1800  # EARLY_UNTIL up to here: COARSE_WIDTH-year buckets; from here: decades
-COARSE_WIDTH = 50
-LAST_DECADE = 2020  # the last decade node; later years are counted in it
-SENSITIVE_RELATIONS = ("P21", "P27")  # sex or gender, country of citizenship
+from fairkg.constants import (
+    COARSE_UNTIL,
+    COARSE_WIDTH,
+    EARLY_UNTIL,
+    GRAPH_SETTINGS,
+    LAST_DECADE,
+    PROCESSED_DIR,
+    VERSION,
+)
 
 
 def graph_path(
-    version: str = VERSION, directory: Path = PROCESSED_DIR, settings: str = SETTINGS
+    version: str = VERSION, directory: Path = PROCESSED_DIR, settings: str = GRAPH_SETTINGS
 ) -> Path:
     return directory / f"graph_{version}_{settings}.pt"
 
@@ -147,7 +139,7 @@ def build_graph_with_decades(
 ) -> dict:
     """The graph of `build_graph` plus a "born in bucket" edge for every person.
 
-    This is the variant (settings DECADE_SETTINGS, saved as its own file). Compared with the main
+    This is the variant (settings GRAPH_DECADE_SETTINGS, saved as its own file). Compared with the main
     graph it has:
       - len(birth_bucket_labels()) + 1 extra nodes (the buckets and one "unknown"), IDs from
         `num_nodes` on;
@@ -180,7 +172,7 @@ def save_graph(graph: dict, path: Path) -> None:
 
 
 def load_graph(
-    version: str = VERSION, directory: Path = PROCESSED_DIR, settings: str = SETTINGS
+    version: str = VERSION, directory: Path = PROCESSED_DIR, settings: str = GRAPH_SETTINGS
 ) -> dict:
     return torch.load(graph_path(version, directory, settings), weights_only=True)
 
