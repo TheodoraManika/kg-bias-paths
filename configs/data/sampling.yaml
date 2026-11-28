@@ -1,0 +1,48 @@
+# Stratified sampling settings (issue #22). Read by src/fairkg/data/sampling.py.
+# Changing any value here means a NEW output file name (see output.name), never an overwrite.
+
+seed: 42                      # drives every random draw in sampling
+mode: oversample              # proportional | oversample  (decision recorded in notebook/)
+sample_size: 200000           # total number of people to draw (target; actual size is reported)
+
+# Keep EVERY person who holds at least one award (n_awards > 0, weight 1) and subsample only
+# the others. Needed because the 200-test-query rule counts award edges, not people.
+# has_award is a sampling variable only: never use it as a control in the decomposition.
+keep_award_holders: true
+
+# Input tables (script 02 people table, script 03 covariates table), joined on columns.id.
+inputs:
+  people: data/processed/people_v2.parquet
+  covariates: data/processed/covariates_v1.parquet
+  drop_attrs_missing: true    # same rule as the script 02 audit tables
+
+columns:
+  id: id
+  gender: gender_status       # keeps other_value / missing / multi_valued as separate groups
+  region_list: regions        # list of UN M49 codes per person (script 02)
+  region: region              # created here: ONE label per person, see below
+  degree: degree_noaward      # from covariates; excludes award edges (collider rule)
+  birth_decade: birth_decade  # missing allowed (becomes "unknown")
+  occupation: occupation_class
+  n_awards: n_awards          # from covariates; distinct P166 awards
+
+# Single-region rule: no region -> "no_region"; exactly one distinct region -> its M49 code;
+# several distinct regions -> "multiple".
+
+degree_bins: 10               # degree deciles, computed on the full people table
+
+# Merge rule for empty / tiny strata (applied in this order, see sampling.py docstring):
+#   L0 full stratum -> L1 birth decade -> 50-year era -> L2 degree decile -> low/mid/high band
+#   -> L3 drop occupation -> L4 drop era -> L5 gender x region only
+#   -> L6 leftover people pooled per gender as "merged_region".
+# Gender and region are the last things to be coarsened; they are the fairness groups.
+min_stratum_size: 20          # a stratum smaller than this (in the full table) is merged upward
+min_per_stratum: 1            # every kept stratum gets at least this many non-holders
+
+oversample:
+  min_group_size: 2000        # target people per gender x region group, holders included
+
+output:
+  dir: data/processed
+  # {tag} is "_awardkept" when keep_award_holders is true, otherwise empty.
+  name: "people_v1_sample_{mode}_seed{seed}_n{n}{tag}.parquet"
