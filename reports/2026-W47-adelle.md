@@ -40,3 +40,52 @@ Women have a larger sahre than men in deciles 1 to 5 (or example 8.0% against 6.
 Degree without award edges gives almost the same picture (6.08 against 6.61), so counting award edges adds only about 0.1 to degree. This means that award edges don't drive the gap.
 
 This alone does not tell us how much of the model's bias runs though popularity. Shows that the popularity path is real but modest in size.
+
+## 2026-11-28 - Sampling mode decision (issue #22)
+
+Question: how do we sample so every group has at least 200 test queries
+(test fraction = 0.10)?
+
+Data: people_v2 + covariates_v1. 1,499,166 people after dropping 10,469 with
+no attributes. Strata: gender, region, degree (no award edges), birth decade,
+occupation.
+
+What we found:
+1. The 200 minimum counts award edges, not people. Only about 6.6% of people
+   hold an award, so a plain sample of 200,000 (13%) keeps too few. Only male
+   Americas and male Europe would pass. Raising the number of people per
+   group (2,000) adds only about 130 award holders per group, which is also
+   not enough.
+2. Five groups already fail on the full data, so no sampling can fix them:
+   male Africa (95 test edges), female Africa (28), female Oceania (88),
+   female "multiple" (150) and female "no_region" (92). Female Asia passes
+   only if we keep 79% of its award edges. Americas, Asia and Europe pass
+   for both genders.
+
+Decision: oversample mode, keeping ALL award holders and sampling only the
+rest.
+Why: it is the only option where every group that can pass does pass.
+
+Result (seed 42, 200,000 people):
+- 98,311 award holders kept (weight 1) + 101,689 other people sampled
+  (weight about 14 on average).
+- Weights add up to 1,499,166, the full population. No stratum was left out.
+- 84.8% of people are in full strata. Only 380 (0.025%) were merged into the
+  coarsest levels.
+- Groups with fewer than 2,000 people were raised to 2,000 (female Africa,
+  Oceania, multiple). All other_value, missing and multi_valued groups are
+  kept in full.
+- All award edges are kept, so each group has exactly the test edges it has
+  in the full data. The five failing groups stay failing and are reported
+  descriptively, marked as unreliable.
+- Effective sample size is 109,702 (55% of rows). Weights range from 1.0 to
+  22.5.
+
+Rules from now on:
+- Every rate and comparison uses sampling_weight.
+- has_award is used for sampling only. Never use it as a control in the
+  decomposition.
+- "multiple" and "no_region" are strata, not fairness groups.
+
+Next: compare the sample with the full graph (SMD below 0.1), then build
+the splits.
